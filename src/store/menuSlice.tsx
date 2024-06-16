@@ -10,9 +10,11 @@ export interface StateMenuItem {
   contains_lactose: boolean
 }
 
+type SelectedItem = StateMenuItem & { qtd: number }
+
 export interface MenuState {
   availableItems: { category: string; items: StateMenuItem[] }[]
-  selectedItems: StateMenuItem[]
+  selectedItems: SelectedItem[]
 }
 
 const initialState: MenuState = {
@@ -24,7 +26,7 @@ const menuSlice = createSlice({
   name: 'menu',
   initialState: initialState,
   reducers: {
-    selectItem: (state, action: PayloadAction<StateMenuItem>) => {
+    selectItem: (state, action: PayloadAction<SelectedItem>) => {
       state.selectedItems.push(action.payload)
     },
     unselectItem: (state, action: PayloadAction<StateMenuItem>) => {
