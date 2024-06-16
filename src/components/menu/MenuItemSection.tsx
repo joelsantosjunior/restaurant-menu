@@ -37,8 +37,8 @@ const MenuItemSection = ({ category, items }: MenuItemSectionProps) => {
     <MyMenuItemSection>
       <h2>{category}</h2>
       <MyMenuItemSectionContainer>
-        {items.map((item) => {
-          return <MenuItem item={item} />
+        {items.map((item, i) => {
+          return <MenuItem key={item.name + i} item={item} />
         })}
       </MyMenuItemSectionContainer>
     </MyMenuItemSection>

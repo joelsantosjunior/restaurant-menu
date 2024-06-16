@@ -21,7 +21,6 @@ const Modal = ({ children }: { children: ReactElement }) => {
       if (elRef.current) {
         modalRoot.removeChild(elRef.current)
       }
-      console.log('unmounting')
     }
   }, [])
 

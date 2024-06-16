@@ -1,42 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { StateMenuItem, selectItem, unselectItem } from '../store/menuSlice'
+import { StateMenuItem, unselectItem, updateOrder } from '../store/menuSlice'
 import styled from 'styled-components'
 import UIButton from '../components/ui/Button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AppState } from '../store/store'
-
-const MyItemModal = styled.div`
-  position: relative;
-  height: 18em;
-  border-radius: 1em;
-  display: flex;
-  flex-direction: row;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    height: 38em;
-  }
-
-  .close-button {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    padding: 1em;
-    display: flex;
-
-    img {
-      width: 1em;
-      height: 1em;
-    }
-
-    @media screen and (max-width: 768px) {
-      margin: 0.5em 0.5em 0 0;
-      background-color: white;
-      border-radius: 50%;
-      background-color: white;
-    }
-  }
-`
+import { GenericModal, ModalActions } from './GenericModal'
 
 const ModalImage = styled.div`
   height: 100%;
@@ -70,25 +38,6 @@ const ModalContent = styled.div`
   }
 `
 
-const ModalActions = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  margin-top: auto;
-
-  div {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-  }
-
-  button {
-    display: inline;
-    margin: auto 0;
-  }
-`
-
 interface ItemModalProps {
   item: StateMenuItem
   onClose: () => void
@@ -97,19 +46,22 @@ interface ItemModalProps {
 const ItemModal = ({ item, onClose }: ItemModalProps) => {
   const dispatch = useDispatch()
 
-  const [selectedItem] = useSelector((state: AppState) =>
-    state.menu.selectedItems.filter((i) => i.name === item.name)
+  const selectedItem = useSelector((state: AppState) =>
+    state.menu.selectedItems.find((i) => i.name === item.name)
   )
+
+  const [buttonText, setButtonText] = useState('Add to Order')
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
 
   const handleAddItemToBasket = () => {
     dispatch(
-      selectItem({
+      updateOrder({
         ...item,
         qtd,
       })
     )
+
     onClose()
   }
 
@@ -118,8 +70,30 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
     onClose()
   }
 
+  const handleUpdateBasket = () => {
+    if (qtd > 0) {
+      handleAddItemToBasket()
+    } else {
+      handleRemoveItemToBasket()
+    }
+  }
+
+  useEffect(() => {
+    if (qtd === 0) {
+      setButtonText('Remove')
+      return
+    }
+
+    if (selectedItem) {
+      setButtonText('Update Order')
+      return
+    }
+
+    setButtonText('Add to Order')
+  }, [qtd, selectedItem])
+
   return (
-    <MyItemModal>
+    <GenericModal>
       <div onClick={onClose} className="close-button">
         <img src="/img/close.svg" alt="" />
       </div>
@@ -151,20 +125,10 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
               <img src="/img/plus.svg" alt="" />
             </UIButton>
           </div>
-          <UIButton
-            onClick={() => {
-              if (qtd > 0) {
-                handleAddItemToBasket()
-              } else {
-                handleRemoveItemToBasket()
-              }
-            }}
-          >
-            {qtd > 0 ? `Add ${qtd} to Order` : 'Remove'}
-          </UIButton>
+          <UIButton onClick={handleUpdateBasket}>{buttonText}</UIButton>
         </ModalActions>
       </ModalContent>
-    </MyItemModal>
+    </GenericModal>
   )
 }
 

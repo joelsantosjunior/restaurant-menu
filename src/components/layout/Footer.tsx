@@ -1,8 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../../store/store'
 import UIButton from '../ui/Button'
+import { setShowOrderModel } from '../../store/UISlice'
+import useTotal from '../../hooks/useTotal'
 
 const MyFooter = styled.footer`
   position: fixed;
@@ -32,26 +34,21 @@ const MyFooter = styled.footer`
 `
 
 const Footer: React.FC = () => {
-  const total = useSelector((state: AppState) =>
-    state.menu.selectedItems.reduce(
-      (acc, item) => acc + item.price * item.qtd,
-      0
-    )
-  )
+  const dispatch = useDispatch()
+
+  const total = useTotal()
+
+  const handleFinishOrder = () => {
+    dispatch(setShowOrderModel(true))
+  }
 
   return (
     <MyFooter>
       <h2 className="price">Total: R$ {total}</h2>
       <div>
-        {/* <UIButton
-          outline={true}
-          onClick={() => {
-            dispatch(cleanSelection())
-          }}
-        >
-          Limpar
-        </UIButton> */}
-        {total > 0 && <UIButton onClick={() => {}}>Finalizar Pedido</UIButton>}
+        {total > 0 && (
+          <UIButton onClick={handleFinishOrder}>Meu Pedido</UIButton>
+        )}
       </div>
     </MyFooter>
   )

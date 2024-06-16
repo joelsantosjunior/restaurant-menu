@@ -29,6 +29,15 @@ const menuSlice = createSlice({
     selectItem: (state, action: PayloadAction<SelectedItem>) => {
       state.selectedItems.push(action.payload)
     },
+    updateOrder: (state, action: PayloadAction<SelectedItem>) => {
+      if (state.selectedItems.some((i) => i.name === action.payload.name)) {
+        state.selectedItems = state.selectedItems.map((item) =>
+          item.name === action.payload.name ? action.payload : item
+        )
+      } else {
+        state.selectedItems.push(action.payload)
+      }
+    },
     unselectItem: (state, action: PayloadAction<StateMenuItem>) => {
       state.selectedItems = state.selectedItems.filter(
         (item) => item.name !== action.payload.name
@@ -40,6 +49,7 @@ const menuSlice = createSlice({
   },
 })
 
-export const { selectItem, unselectItem, cleanSelection } = menuSlice.actions
+export const { selectItem, updateOrder, unselectItem, cleanSelection } =
+  menuSlice.actions
 
 export default menuSlice.reducer
