@@ -1,0 +1,94 @@
+{
+  "menu": [
+    {
+      "category": "Entradas",
+      "items": [
+        {
+          "name": "Bruschetta de Tomate e Manjericão",
+          "ingredients": "Pão integral, tomate cereja, manjericão fresco, alho, azeite de oliva, sal",
+          "price": 18.0,
+          "contains_gluten": true,
+          "contains_lactose": false
+        },
+        {
+          "name": "Bolinho de Grão-de-Bico",
+          "ingredients": "Grão-de-bico, cebola, alho, salsinha, farinha de trigo integral, especiarias",
+          "price": 15.0,
+          "contains_gluten": true,
+          "contains_lactose": false
+        }
+      ]
+    },
+    {
+      "category": "Pratos Principais",
+      "items": [
+        {
+          "name": "Lasanha de Berinjela",
+          "ingredients": "Berinjela, molho de tomate, tofu, espinafre, nozes, ervas italianas",
+          "price": 32.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        },
+        {
+          "name": "Risoto de Cogumelos",
+          "ingredients": "Arroz arbóreo, cogumelos shiitake e shimeji, alho-poró, caldo de legumes, vinho branco, azeite de oliva",
+          "price": 29.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        },
+        {
+          "name": "Quinoa com Legumes Assados",
+          "ingredients": "Quinoa, abóbora, abobrinha, pimentão, cebola roxa, grão-de-bico, molho tahine",
+          "price": 26.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        }
+      ]
+    },
+    {
+      "category": "Sobremesas",
+      "items": [
+        {
+          "name": "Torta de Limão com Castanha-de-Caju",
+          "ingredients": "Castanha-de-caju, limão siciliano, leite de coco, tâmaras, óleo de coco",
+          "price": 18.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        },
+        {
+          "name": "Brownie de Batata Doce",
+          "ingredients": "Batata doce, cacau em pó, açúcar de coco, farinha de amêndoas, chocolate amargo",
+          "price": 20.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        }
+      ]
+    },
+    {
+      "category": "Bebidas",
+      "items": [
+        {
+          "name": "Suco Verde Detox",
+          "ingredients": "Couve, maçã, pepino, gengibre, limão",
+          "price": 12.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        },
+        {
+          "name": "Smoothie de Frutas Vermelhas",
+          "ingredients": "Morango, framboesa, mirtilo, banana, leite de amêndoas",
+          "price": 14.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        },
+        {
+          "name": "Chá Gelado de Hibisco",
+          "ingredients": "Hibisco, hortelã, limão, melado de cana",
+          "price": 10.0,
+          "contains_gluten": false,
+          "contains_lactose": false
+        }
+      ]
+    }
+  ]
+}
