@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,900&family=Nunito:wght@200..1000&display=swap');
 
 :root,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,6 +9,7 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -26,6 +28,9 @@
   --color-text-secondary: var(--color-quaternary);
 
   --color-bg: var(--color-tertiary);
+  --color-card-bg: #eef1e4;
+
+  --footer-height: 4em;
 }
 
 body {
@@ -38,9 +43,9 @@ body {
   color: var(--color-text);
 }
 
-body::before {
+/* body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -49,7 +54,7 @@ body::before {
   background-size: cover;
   background-image: url('/img/bg.jpg');
   z-index: -1;
-}
+} */
 
 /* Typography */
 
@@ -68,4 +73,23 @@ span {
   font-family: 'Nunito', sans-serif;
 }
 
-/*  */
+h1,
+h2,
+h3,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.04em;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
