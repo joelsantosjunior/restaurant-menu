@@ -41,7 +41,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </Header>
       <Container>{children}</Container>
       <Footer>
-        <h2>total: R$ 200</h2>
+        <h2>mesa #32</h2>
       </Footer>
     </div>
   )
