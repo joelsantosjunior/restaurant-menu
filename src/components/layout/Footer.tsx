@@ -1,7 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { AppState } from '../../store/store'
 import UIButton from '../ui/Button'
 import { setShowOrderModel } from '../../store/UISlice'
 import useTotal from '../../hooks/useTotal'

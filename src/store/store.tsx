@@ -4,7 +4,7 @@ import UIReducer, { UIState } from './UISlice'
 
 export interface AppState {
   menu: MenuState
-  UI: UIState
+  ui: UIState
 }
 
 const store = configureStore({

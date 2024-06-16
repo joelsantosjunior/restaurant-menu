@@ -6,7 +6,6 @@ import OrderModal from './modals/OrderModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from './store/store'
 import { setShowOrderModel } from './store/UISlice'
-import { useEffect } from 'react'
 
 const router = createBrowserRouter([
   {
@@ -16,15 +15,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const showOrderModal = useSelector((state: AppState) => {
-    return state.UI?.showOrderModel
-  })
-
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log('showOrderModal', showOrderModal)
-  }, [showOrderModal])
+  const showOrderModal = useSelector(
+    (state: AppState) => state.ui.showOrderModel
+  )
 
   return (
     <>
