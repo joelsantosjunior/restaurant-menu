@@ -7,11 +7,9 @@ import { AppState } from '../store/store'
 import { GenericModal, ModalActions } from './GenericModal'
 
 const ModalImage = styled.div`
-  height: 100%;
   width: 18em;
   border-radius: 1em 0 0 1em;
   overflow: hidden;
-  float: left;
 
   @media (max-width: 768px) {
     border-radius: 1em 1em 0 0;
@@ -29,13 +27,21 @@ const ModalContent = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 100%;
   padding: 1em;
 
   h1:first-child {
     line-height: 1.2em;
     margin-right: 1em;
   }
+
+  .img-info {
+    margin-top: 1em;
+  }
+`
+
+const CardBottomInfoImg = styled.img`
+  margin-top: auto;
+  width: 2em;
 `
 
 interface ItemModalProps {
@@ -103,6 +109,20 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       <ModalContent>
         <h1>{item.name}</h1>
         <p>{item.ingredients}</p>
+        <div className="img-info">
+          {!item.contains_gluten && (
+            <CardBottomInfoImg
+              src="/img/gluten-free.png"
+              alt="Contains gluten"
+            />
+          )}
+          {!item.contains_lactose && (
+            <CardBottomInfoImg
+              src="/img/diary-free.png"
+              alt="Contains Lactose"
+            />
+          )}
+        </div>
         <h1 className="price">R$ {qtd ? item.price * qtd : item.price}</h1>
         <br />
         <ModalActions>

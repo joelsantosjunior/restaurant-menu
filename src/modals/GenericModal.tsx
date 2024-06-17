@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const GenericModal = styled.div`
   position: relative;
-  height: 18em;
   border-radius: 1em;
   display: flex;
   flex-direction: row;
