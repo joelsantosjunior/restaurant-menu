@@ -10,7 +10,7 @@ const MyFooter = styled.footer`
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: var(--footer-height);
+  height: calc(var(--footer-height) + env(safe-area-inset-bottom));
   background-color: var(--color-bg);
   color: var(--color-text-secondary);
 
