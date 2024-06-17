@@ -18,7 +18,7 @@ const MyFooter = styled.footer`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: env(safe-area-inset-top) 1em;
+  padding: env(safe-area-inset-bottom) 1em;
 
   h2 {
     text-align: left;
