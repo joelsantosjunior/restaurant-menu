@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
         <MyFooter className="slide-from-bottom-enter-active">
           <h2 className="price">Total: R$ {total}</h2>
           <div>
-            <UIButton onClick={handleFinishOrder}>Meu Pedido</UIButton>
+            <UIButton onClick={handleFinishOrder}>My Order</UIButton>
           </div>
         </MyFooter>
       )}
