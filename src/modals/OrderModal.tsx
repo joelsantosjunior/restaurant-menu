@@ -34,6 +34,10 @@ const ModalContent = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  li:not(:last-child) {
+    border-bottom: 1px dashed var(--color-primary);
+  }
 `
 
 interface OrderModalProps {
@@ -69,10 +73,10 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
         <ul>
           {items.map((item) => (
             <li key={item.name}>
-              <span>
+              <p>
                 {item.qtd}x {item.name}
-              </span>
-              <span>R$ {item.price}</span>
+              </p>
+              <h3>R$ {item.price}</h3>
             </li>
           ))}
         </ul>

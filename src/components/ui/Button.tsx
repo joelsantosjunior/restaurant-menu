@@ -7,7 +7,7 @@ const MyButton = styled.button`
   font-weight: bold;
   border-radius: 1em;
   border: none;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-card);
 
   cursor: pointer;
   height: min(3em, 100%);

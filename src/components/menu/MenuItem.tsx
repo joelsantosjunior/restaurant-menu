@@ -12,7 +12,7 @@ const MyMenuItem = styled.div`
   border-radius: 0.75em;
   padding: 0.5em;
   gap: 0.8em;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 

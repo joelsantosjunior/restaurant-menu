@@ -1,0 +1,12 @@
+.slide-from-bottom-enter-active {
+  animation: slide-from-bottom-enter 0.3s;
+}
+
+@keyframes slide-from-bottom-enter {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

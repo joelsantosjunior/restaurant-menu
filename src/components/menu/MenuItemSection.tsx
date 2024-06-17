@@ -29,13 +29,18 @@ const MyMenuItemSectionContainer = styled.div`
 
 interface MenuItemSectionProps {
   category: string
+  quickAccessId: string
   items: StateMenuItem[]
 }
 
-const MenuItemSection = ({ category, items }: MenuItemSectionProps) => {
+const MenuItemSection = ({
+  category,
+  items,
+  quickAccessId,
+}: MenuItemSectionProps) => {
   return (
     <MyMenuItemSection>
-      <h2>{category}</h2>
+      <h2 id={quickAccessId}>{category}</h2>
       <MyMenuItemSectionContainer>
         {items.map((item, i) => (
           <MenuItem key={item.name + i} item={item} />

@@ -1,7 +1,11 @@
 {
   "menu": [
     {
-      "category": "Entradas",
+      "category": "Appetizers",
+      "quick_access": {
+        "name": "Appetizers",
+        "icon": "appetizer.png"
+      },
       "items": [
         {
           "name": "Bruschetta de Tomate e Manjericão",
@@ -22,7 +26,11 @@
       ]
     },
     {
-      "category": "Pratos Principais",
+      "category": "Main Dish",
+      "quick_access": {
+        "name": "Main Dish",
+        "icon": "main-dish.png"
+      },
       "items": [
         {
           "name": "Lasanha de Berinjela",
@@ -51,7 +59,11 @@
       ]
     },
     {
-      "category": "Sobremesas",
+      "category": "Desserts",
+      "quick_access": {
+        "name": "Desserts",
+        "icon": "dessert.png"
+      },
       "items": [
         {
           "name": "Torta de Limão com Castanha-de-Caju",
@@ -72,7 +84,11 @@
       ]
     },
     {
-      "category": "Bebidas",
+      "category": "Drinks",
+      "quick_access": {
+        "name": "Drinks",
+        "icon": "drinks.png"
+      },
       "items": [
         {
           "name": "Suco Verde Detox",

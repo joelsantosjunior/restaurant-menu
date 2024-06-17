@@ -42,14 +42,16 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <MyFooter>
-      <h2 className="price">Total: R$ {total}</h2>
-      <div>
-        {total > 0 && (
-          <UIButton onClick={handleFinishOrder}>Meu Pedido</UIButton>
-        )}
-      </div>
-    </MyFooter>
+    <>
+      {total > 0 && (
+        <MyFooter className="slide-from-bottom-enter-active">
+          <h2 className="price">Total: R$ {total}</h2>
+          <div>
+            <UIButton onClick={handleFinishOrder}>Meu Pedido</UIButton>
+          </div>
+        </MyFooter>
+      )}
+    </>
   )
 }
 

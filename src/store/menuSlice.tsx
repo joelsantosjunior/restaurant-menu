@@ -10,10 +10,19 @@ export interface StateMenuItem {
   contains_lactose: boolean
 }
 
+export interface MenuCategory {
+  category: string
+  quick_access: {
+    name: string
+    icon: string
+  }
+  items: StateMenuItem[]
+}
+
 type SelectedItem = StateMenuItem & { qtd: number }
 
 export interface MenuState {
-  availableItems: { category: string; items: StateMenuItem[] }[]
+  availableItems: MenuCategory[]
   selectedItems: SelectedItem[]
 }
 
