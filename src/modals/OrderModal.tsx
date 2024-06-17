@@ -3,6 +3,8 @@ import UIButton from '../components/ui/Button'
 import { GenericModal, ModalActions } from './GenericModal'
 import useOrder from '../hooks/useOrder'
 import useTotal from '../hooks/useTotal'
+import { cleanSelection } from '../store/menuSlice'
+import { useDispatch } from 'react-redux'
 
 const ModalContent = styled.div`
   display: flex;
@@ -41,8 +43,14 @@ interface OrderModalProps {
 const OrderModal = ({ onClose }: OrderModalProps) => {
   const items = useOrder()
   const total = useTotal()
+  const dispatch = useDispatch()
 
   const handleFinishOrder = () => {
+    onClose()
+  }
+
+  const handleCancelOrder = () => {
+    dispatch(cleanSelection())
     onClose()
   }
 
@@ -82,7 +90,9 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
             marginTop: '0',
           }}
         >
-          <div></div>
+          <UIButton type="secondary" onClick={handleCancelOrder}>
+            Cancel
+          </UIButton>
           <UIButton onClick={handleFinishOrder}>Finish Order</UIButton>
         </ModalActions>
       </ModalContent>

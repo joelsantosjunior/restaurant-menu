@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { StateMenuItem, unselectItem, updateOrder } from '../store/menuSlice'
 import styled from 'styled-components'
 import UIButton from '../components/ui/Button'
 import { useEffect, useState } from 'react'
-import { AppState } from '../store/store'
 import { GenericModal, ModalActions } from './GenericModal'
+import useOrder from '../hooks/useOrder'
 
 const ModalImage = styled.div`
   width: 18em;
@@ -52,9 +52,7 @@ interface ItemModalProps {
 const ItemModal = ({ item, onClose }: ItemModalProps) => {
   const dispatch = useDispatch()
 
-  const selectedItem = useSelector((state: AppState) =>
-    state.menu.selectedItems.find((i) => i.name === item.name)
-  )
+  const selectedItem = useOrder().find((i) => i.name === item.name)
 
   const [buttonText, setButtonText] = useState('Add to Order')
 
