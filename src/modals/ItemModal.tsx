@@ -3,7 +3,7 @@ import { StateMenuItem, unselectItem, updateOrder } from '../store/menuSlice'
 import styled from 'styled-components'
 import UIButton from '../components/ui/Button'
 import { useEffect, useState } from 'react'
-import { GenericModal, ModalActions } from './GenericModal'
+import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../hooks/useOrder'
 
 const ModalImage = styled.div`

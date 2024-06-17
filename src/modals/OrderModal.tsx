@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import UIButton from '../components/ui/Button'
-import { GenericModal, ModalActions } from './GenericModal'
+import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../hooks/useOrder'
 import useTotal from '../hooks/useTotal'
 import { cleanSelection } from '../store/menuSlice'
