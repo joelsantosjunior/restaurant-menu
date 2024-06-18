@@ -5,7 +5,9 @@ import Modal from './modals/Modal'
 import OrderModal from './modals/OrderModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from './store/store'
-import { setShowOrderModel } from './store/UISlice'
+import { Locale, setLocale, setShowOrderModel } from './store/UISlice'
+import { useEffect } from 'react'
+import { setMenu } from './store/menuSlice'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ function App() {
   const showOrderModal = useSelector(
     (state: AppState) => state.ui.showOrderModel
   )
+
+  useEffect(() => {
+    const initialLocale =
+      (navigator?.language?.split('-')?.[0] as Locale) || 'en'
+
+    dispatch(setLocale(initialLocale as Locale))
+    dispatch(setMenu(initialLocale))
+  })
 
   return (
     <>

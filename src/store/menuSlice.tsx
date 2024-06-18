@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import db from '../assets/db.json'
+import { Locale } from './UISlice'
 
 export interface StateMenuItem {
   name: string
@@ -27,7 +28,7 @@ export interface MenuState {
 }
 
 const initialState: MenuState = {
-  availableItems: db['menu'],
+  availableItems: [],
   selectedItems: [],
 }
 
@@ -35,6 +36,9 @@ const menuSlice = createSlice({
   name: 'menu',
   initialState: initialState,
   reducers: {
+    setMenu: (state, action: PayloadAction<Locale>) => {
+      state.availableItems = db[action.payload]['menu']
+    },
     selectItem: (state, action: PayloadAction<SelectedItem>) => {
       state.selectedItems.push(action.payload)
     },
@@ -58,7 +62,12 @@ const menuSlice = createSlice({
   },
 })
 
-export const { selectItem, updateOrder, unselectItem, cleanSelection } =
-  menuSlice.actions
+export const {
+  selectItem,
+  updateOrder,
+  unselectItem,
+  cleanSelection,
+  setMenu,
+} = menuSlice.actions
 
 export default menuSlice.reducer

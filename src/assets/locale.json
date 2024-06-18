@@ -1,0 +1,16 @@
+{
+  "page": {
+    "menu": {
+      "footer": {
+        "total": {
+          "en": "Total",
+          "pt": "Total"
+        },
+        "button": {
+          "en": "My Order",
+          "pt": "Meu Pedido"
+        }
+      }
+    }
+  }
+}
