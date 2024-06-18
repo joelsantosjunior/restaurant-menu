@@ -10,6 +10,40 @@
           "en": "My Order",
           "pt": "Meu Pedido"
         }
+      },
+      "modal": {
+        "order": {
+          "title": {
+            "en": "My Order",
+            "pt": "Meu Pedido"
+          },
+          "total": {
+            "en": "Total",
+            "pt": "Total"
+          }
+        },
+        "button": {
+          "cancel": {
+            "en": "Cancel",
+            "pt": "Cancelar"
+          },
+          "finish": {
+            "en": "Finish Order",
+            "pt": "Finalizar Pedido"
+          },
+          "addToOrder": {
+            "en": "Add to Order",
+            "pt": "Adicionar"
+          },
+          "removeFromOrder": {
+            "en": "Remove",
+            "pt": "Remover"
+          },
+          "updateOrder": {
+            "en": "Update Order",
+            "pt": "Atualizar Pedido"
+          }
+        }
       }
     }
   }

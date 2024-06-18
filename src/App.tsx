@@ -24,8 +24,7 @@ function App() {
   )
 
   useEffect(() => {
-    const initialLocale =
-      (navigator?.language?.split('-')?.[0] as Locale) || 'en'
+    const initialLocale = 'pt' // (navigator?.language?.split('-')?.[0] as Locale) || 'en'
 
     dispatch(setLocale(initialLocale as Locale))
     dispatch(setMenu(initialLocale))

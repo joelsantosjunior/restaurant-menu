@@ -5,6 +5,7 @@ import UIButton from '../components/ui/Button'
 import { useEffect, useState } from 'react'
 import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../hooks/useOrder'
+import useLocaleData from '../hooks/useLocaleData'
 
 const ModalImage = styled.div`
   width: 18em;
@@ -54,9 +55,11 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   const selectedItem = useOrder().find((i) => i.name === item.name)
 
-  const [buttonText, setButtonText] = useState('Add to Order')
+  const [buttonText, setButtonText] = useState('addToOrder')
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
+
+  const t = useLocaleData()
 
   const handleAddItemToBasket = () => {
     dispatch(
@@ -84,16 +87,16 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   useEffect(() => {
     if (qtd === 0) {
-      setButtonText('Remove')
+      setButtonText('removeFromOrder')
       return
     }
 
     if (selectedItem) {
-      setButtonText('Update Order')
+      setButtonText('updateOrder')
       return
     }
 
-    setButtonText('Add to Order')
+    setButtonText('addToOrder')
   }, [qtd, selectedItem])
 
   return (
@@ -143,7 +146,9 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
               <img src="/img/plus.svg" alt="" />
             </UIButton>
           </div>
-          <UIButton onClick={handleUpdateBasket}>{buttonText}</UIButton>
+          <UIButton onClick={handleUpdateBasket}>
+            {t(`page.menu.modal.button.${buttonText}`)}
+          </UIButton>
         </ModalActions>
       </ModalContent>
     </GenericModal>
