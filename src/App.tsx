@@ -37,7 +37,7 @@ function App() {
 
     dispatch(setLocale(initialLocale as Locale))
     dispatch(setMenu(initialLocale))
-  })
+  }, [])
 
   return (
     <>
