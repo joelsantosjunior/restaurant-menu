@@ -13,8 +13,7 @@ const QuickAccessMenu = styled.div`
   padding: 1em 1em 1em 1em;
   position: relative;
 
-  width: 100dvw;
-  // margin-top: 3em;
+  width: 100%;
   overflow-x: scroll;
 
   &.fixed {
