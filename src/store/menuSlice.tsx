@@ -3,6 +3,7 @@ import db from '../assets/db.json'
 import { Locale } from './UISlice'
 
 export interface StateMenuItem {
+  id: number
   name: string
   ingredients: string
   price: number
@@ -56,18 +57,13 @@ const menuSlice = createSlice({
         (item) => item.name !== action.payload.name
       )
     },
-    cleanSelection: (state) => {
+    resetOrder: (state) => {
       state.selectedItems = []
     },
   },
 })
 
-export const {
-  selectItem,
-  updateOrder,
-  unselectItem,
-  cleanSelection,
-  setMenu,
-} = menuSlice.actions
+export const { selectItem, updateOrder, unselectItem, resetOrder, setMenu } =
+  menuSlice.actions
 
 export default menuSlice.reducer

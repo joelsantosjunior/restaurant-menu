@@ -3,7 +3,7 @@ import UIButton from '../components/ui/Button'
 import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../hooks/useOrder'
 import useTotal from '../hooks/useTotal'
-import { cleanSelection } from '../store/menuSlice'
+import { resetOrder } from '../store/menuSlice'
 import { useDispatch } from 'react-redux'
 import useLocaleData from '../hooks/useLocaleData'
 
@@ -56,7 +56,7 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   }
 
   const handleCancelOrder = () => {
-    dispatch(cleanSelection())
+    dispatch(resetOrder())
     onClose()
   }
 

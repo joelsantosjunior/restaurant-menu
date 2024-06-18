@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Locale, availableLocales, setLocale } from '../../store/UISlice'
 import { useDispatch } from 'react-redux'
-import { setMenu } from '../../store/menuSlice'
+import { resetOrder, setMenu } from '../../store/menuSlice'
 
 const MyLanguageToggle = styled.div`
   position: absolute;
@@ -25,6 +25,7 @@ const LanguageToggle = () => {
   const handleChangeLocale = (locale: string) => {
     dispatch(setMenu(locale as Locale))
     dispatch(setLocale(locale as Locale))
+    dispatch(resetOrder())
   }
 
   return (

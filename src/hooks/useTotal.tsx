@@ -1,10 +1,7 @@
-import { useSelector } from 'react-redux'
-import { AppState } from '../store/store'
+import useOrder from './useOrder'
 
 const useTotal = () => {
-  const selectedItems = useSelector(
-    (state: AppState) => state.menu.selectedItems
-  )
+  const selectedItems = useOrder()
 
   const total = selectedItems.reduce(
     (acc, item) => acc + item.price * item.qtd,
