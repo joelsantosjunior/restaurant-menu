@@ -9,6 +9,7 @@
         },
         "items": [
           {
+            "id": 1,
             "name": "Tomato and Basil Bruschetta",
             "ingredients": "Whole grain bread, cherry tomatoes, fresh basil, garlic, olive oil, salt",
             "img": "245737_A vibrant image of a bruschetta topped with diced _xl-1024-v1-0.jpg",
@@ -17,6 +18,7 @@
             "contains_lactose": false
           },
           {
+            "id": 2,
             "name": "Chickpea Fritter",
             "ingredients": "Chickpeas, onion, garlic, parsley, whole wheat flour, spices",
             "img": "177620_A delicious close-up of golden-brown chickpea frit_xl-1024-v1-0.jpg",
@@ -34,6 +36,7 @@
         },
         "items": [
           {
+            "id": 3,
             "name": "Eggplant Lasagna",
             "ingredients": "Eggplant, tomato sauce, tofu, spinach, walnuts, Italian herbs",
             "img": "462905_A beautifully layered eggplant lasagna with rich t_xl-1024-v1-0.jpg",
@@ -42,6 +45,7 @@
             "contains_lactose": false
           },
           {
+            "id": 4,
             "name": "Mushroom Risotto",
             "ingredients": "Arborio rice, shiitake and shimeji mushrooms, leek, vegetable broth, white wine, olive oil",
             "img": "556719_A creamy mushroom risotto featuring shiitake and s_xl-1024-v1-0.jpg",
@@ -50,6 +54,7 @@
             "contains_lactose": false
           },
           {
+            "id": 5,
             "name": "Quinoa with Roasted Vegetables",
             "ingredients": "Quinoa, pumpkin, zucchini, bell pepper, red onion, chickpeas, tahini sauce",
             "img": "631846_A colorful plate of quinoa salad with roasted butt_xl-1024-v1-0.jpg",
@@ -67,6 +72,7 @@
         },
         "items": [
           {
+            "id": 6,
             "name": "Lemon Cashew Tart",
             "ingredients": "Cashews, Sicilian lemon, coconut milk, dates, coconut oil",
             "img": "600403_A slice of lemon cashew tart with a golden crust, _xl-1024-v1-0.jpg",
@@ -75,6 +81,7 @@
             "contains_lactose": false
           },
           {
+            "id": 7,
             "name": "Sweet Potato Brownie",
             "ingredients": "Sweet potato, cocoa powder, coconut sugar, almond flour, dark chocolate",
             "img": "488693_A rich, fudgy sweet potato brownie, dusted with co_xl-1024-v1-0.jpg",
@@ -92,6 +99,7 @@
         },
         "items": [
           {
+            "id": 8,
             "name": "Green Detox Juice",
             "ingredients": "Kale, apple, cucumber, ginger, lemon",
             "price": 12.0,
@@ -100,6 +108,7 @@
             "contains_lactose": false
           },
           {
+            "id": 9,
             "name": "Berry Smoothie",
             "ingredients": "Strawberry, raspberry, blueberry, banana, almond milk",
             "price": 14.0,
@@ -108,6 +117,7 @@
             "contains_lactose": false
           },
           {
+            "id": 10,
             "name": "Iced Hibiscus Tea",
             "ingredients": "Hibiscus, mint, lemon, molasses",
             "price": 10.0,
@@ -129,6 +139,7 @@
         },
         "items": [
           {
+            "id": 1,
             "name": "Bruschetta de Tomate e Manjericão",
             "ingredients": "Pão integral, tomate cereja, manjericão fresco, alho, azeite de oliva, sal",
             "img": "245737_A vibrant image of a bruschetta topped with diced _xl-1024-v1-0.jpg",
@@ -137,6 +148,7 @@
             "contains_lactose": false
           },
           {
+            "id": 2,
             "name": "Bolinho de Grão-de-Bico",
             "ingredients": "Grão-de-bico, cebola, alho, salsinha, farinha de trigo integral, especiarias",
             "img": "177620_A delicious close-up of golden-brown chickpea frit_xl-1024-v1-0.jpg",
@@ -154,6 +166,7 @@
         },
         "items": [
           {
+            "id": 3,
             "name": "Lasanha de Berinjela",
             "ingredients": "Berinjela, molho de tomate, tofu, espinafre, nozes, ervas italianas",
             "img": "462905_A beautifully layered eggplant lasagna with rich t_xl-1024-v1-0.jpg",
@@ -162,6 +175,7 @@
             "contains_lactose": false
           },
           {
+            "id": 4,
             "name": "Risoto de Cogumelos",
             "ingredients": "Arroz arbóreo, cogumelos shiitake e shimeji, alho-poró, caldo de legumes, vinho branco, azeite de oliva",
             "img": "556719_A creamy mushroom risotto featuring shiitake and s_xl-1024-v1-0.jpg",
@@ -170,6 +184,7 @@
             "contains_lactose": false
           },
           {
+            "id": 5,
             "name": "Quinoa com Legumes Assados",
             "ingredients": "Quinoa, abóbora, abobrinha, pimentão, cebola roxa, grão-de-bico, molho tahine",
             "img": "631846_A colorful plate of quinoa salad with roasted butt_xl-1024-v1-0.jpg",
@@ -187,6 +202,7 @@
         },
         "items": [
           {
+            "id": 6,
             "name": "Torta de Limão com Castanha-de-Caju",
             "ingredients": "Castanha-de-caju, limão siciliano, leite de coco, tâmaras, óleo de coco",
             "img": "600403_A slice of lemon cashew tart with a golden crust, _xl-1024-v1-0.jpg",
@@ -195,6 +211,7 @@
             "contains_lactose": false
           },
           {
+            "id": 7,
             "name": "Brownie de Batata Doce",
             "ingredients": "Batata doce, cacau em pó, açúcar de coco, farinha de amêndoas, chocolate amargo",
             "img": "488693_A rich, fudgy sweet potato brownie, dusted with co_xl-1024-v1-0.jpg",
@@ -212,6 +229,7 @@
         },
         "items": [
           {
+            "id": 8,
             "name": "Suco Verde Detox",
             "ingredients": "Couve, maçã, pepino, gengibre, limão",
             "price": 12.0,
@@ -220,6 +238,7 @@
             "contains_lactose": false
           },
           {
+            "id": 9,
             "name": "Smoothie de Frutas Vermelhas",
             "ingredients": "Morango, framboesa, mirtilo, banana, leite de amêndoas",
             "price": 14.0,
@@ -228,6 +247,7 @@
             "contains_lactose": false
           },
           {
+            "id": 10,
             "name": "Chá Gelado de Hibisco",
             "ingredients": "Hibisco, hortelã, limão, melado de cana",
             "price": 10.0,
