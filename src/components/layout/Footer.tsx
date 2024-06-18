@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import UIButton from '../ui/Button'
 import { setShowOrderModel } from '../../store/UISlice'
 import useTotal from '../../hooks/useTotal'
-import useLocaleData from '../../hooks/useLocaleData'
+import LocalizeText from '../LocalizeText'
 
 const MyFooter = styled.footer`
   position: fixed;
@@ -42,18 +42,16 @@ const Footer: React.FC = () => {
     dispatch(setShowOrderModel(true))
   }
 
-  const t = useLocaleData()
-
   return (
     <>
       {total > 0 && (
         <MyFooter className="slide-from-bottom-enter-active">
           <h2 className="price">
-            {t('page.menu.footer.total')}: R$ {total}
+            <LocalizeText>page.menu.footer.total</LocalizeText>: R$ {total}
           </h2>
           <div>
             <UIButton onClick={handleFinishOrder}>
-              {t('page.menu.footer.button')}
+              <LocalizeText>page.menu.footer.button</LocalizeText>
             </UIButton>
           </div>
         </MyFooter>

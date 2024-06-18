@@ -5,7 +5,7 @@ import UIButton from '../../components/ui/Button'
 import { useEffect, useState } from 'react'
 import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../../hooks/useOrder'
-import useLocaleData from '../../hooks/useLocaleData'
+import LocalizeText from '../LocalizeText'
 
 const ModalImage = styled.div`
   width: 18em;
@@ -58,8 +58,6 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
   const [buttonText, setButtonText] = useState('addToOrder')
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
-
-  const t = useLocaleData()
 
   const handleAddItemToBasket = () => {
     dispatch(
@@ -147,7 +145,9 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
             </UIButton>
           </div>
           <UIButton onClick={handleUpdateBasket}>
-            {t(`page.menu.modal.button.${buttonText}`)}
+            <LocalizeText
+              textKey={'page.menu.modal.button.' + buttonText}
+            ></LocalizeText>
           </UIButton>
         </ModalActions>
       </ModalContent>

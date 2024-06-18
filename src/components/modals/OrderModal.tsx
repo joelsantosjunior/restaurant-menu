@@ -5,7 +5,7 @@ import useOrder from '../../hooks/useOrder'
 import useTotal from '../../hooks/useTotal'
 import { resetOrder } from '../../store/menuSlice'
 import { useDispatch } from 'react-redux'
-import useLocaleData from '../../hooks/useLocaleData'
+import LocalizeText from '../LocalizeText'
 
 const ModalContent = styled.div`
   display: flex;
@@ -49,8 +49,6 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   const total = useTotal()
   const dispatch = useDispatch()
 
-  const t = useLocaleData()
-
   const handleFinishOrder = () => {
     onClose()
   }
@@ -72,7 +70,9 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
         <img src="/img/close.svg" alt="" />
       </div>
       <ModalContent>
-        <h1>{t('page.menu.modal.order.title')}</h1>
+        <h1>
+          <LocalizeText>page.menu.modal.order.title</LocalizeText>
+        </h1>
 
         <ul>
           {items.map((item) => (
@@ -87,7 +87,9 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
 
         <ul>
           <li>
-            <h3>{t('page.menu.modal.order.total')}</h3>
+            <h3>
+              <LocalizeText>page.menu.modal.order.total</LocalizeText>
+            </h3>
             <h3>R$ {total}</h3>
           </li>
         </ul>
@@ -99,10 +101,10 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
           }}
         >
           <UIButton type="" onClick={handleCancelOrder}>
-            {t('page.menu.modal.button.clean')}
+            <LocalizeText>page.menu.modal.button.clean</LocalizeText>
           </UIButton>
           <UIButton onClick={handleFinishOrder}>
-            {t('page.menu.modal.button.finish')}
+            <LocalizeText>page.menu.modal.button.finish</LocalizeText>
           </UIButton>
         </ModalActions>
       </ModalContent>
