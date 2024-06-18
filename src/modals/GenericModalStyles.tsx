@@ -5,6 +5,7 @@ export const GenericModal = styled.div`
   border-radius: 1em;
   display: flex;
   flex-direction: row;
+  z-index: 2;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;

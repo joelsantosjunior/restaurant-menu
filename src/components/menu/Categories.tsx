@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../../store/store'
+import { useEffect, useRef } from 'react'
 
 const QuickAccessMenu = styled.div`
+  z-index: 1;
   display: flex;
   jusitfy-content: center;
   algin-items: center;
@@ -19,14 +21,10 @@ const QuickAccessMenu = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
     width: 100%;
     margin-top: 0;
     background-color: white;
     box-shadow: var(--shadow-card);
-
-    & body {
-    }
   }
 
   &::-webkit-scrollbar {
@@ -70,6 +68,8 @@ const QuickAccessMenuItem = styled.div`
 `
 
 const MenuCategories = () => {
+  const ref = useRef<HTMLDivElement>(null)
+
   const menuCategories = useSelector(
     (state: AppState) => state.menu.availableItems
   ).map((category) => category.quick_access)
@@ -77,12 +77,27 @@ const MenuCategories = () => {
   const scrollToCategory = (category: string) => {
     const categoryElement = document.getElementById(category)
     if (categoryElement) {
-      categoryElement.scrollIntoView({ behavior: 'smooth' })
+      window.scrollTo({
+        top: categoryElement.offsetTop - 120,
+        behavior: 'smooth',
+      })
     }
   }
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (ref.current) {
+        if (window.scrollY > 170) {
+          ref.current.classList.add('fixed')
+        } else {
+          ref.current.classList.remove('fixed')
+        }
+      }
+    })
+  }, [])
+
   return (
-    <QuickAccessMenu>
+    <QuickAccessMenu className="fixed" ref={ref}>
       {menuCategories.map(({ name, icon }) => (
         <QuickAccessMenuItem
           key={name}
