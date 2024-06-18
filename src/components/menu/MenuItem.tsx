@@ -18,6 +18,7 @@ const MyMenuItem = styled.div`
 
   &:active {
     opacity: 0.5;
+    transform: scale(0.95);
   }
 `
 

@@ -51,6 +51,12 @@ const QuickAccessMenuItem = styled.div`
   font-weight: bold;
   text-align: center;
 
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
   div {
     display: flex;
     flex-direction: column;
