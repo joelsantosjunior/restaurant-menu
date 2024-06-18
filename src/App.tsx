@@ -1,11 +1,16 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './layout'
 import Menu from './routes/Menu'
-import Modal from './modals/Modal'
-import OrderModal from './modals/OrderModal'
+import Modal from './components/modals/Modal'
+import OrderModal from './components/modals/OrderModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from './store/store'
-import { Locale, setLocale, setShowOrderModel } from './store/UISlice'
+import {
+  Locale,
+  availableLocales,
+  setLocale,
+  setShowOrderModel,
+} from './store/UISlice'
 import { useEffect } from 'react'
 import { setMenu } from './store/menuSlice'
 
@@ -24,8 +29,11 @@ function App() {
   )
 
   useEffect(() => {
-    const initialLocale =
-      (navigator?.language?.split('-')?.[0] as Locale) || 'en'
+    let initialLocale = (navigator?.language?.split('-')?.[0] as Locale) || 'en'
+
+    if (!availableLocales.includes(initialLocale)) {
+      initialLocale = 'en'
+    }
 
     dispatch(setLocale(initialLocale as Locale))
     dispatch(setMenu(initialLocale))

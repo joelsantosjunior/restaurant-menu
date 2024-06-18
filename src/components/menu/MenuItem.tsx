@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { StateMenuItem } from '../../store/menuSlice'
 import { useState } from 'react'
-import ItemModal from '../../modals/ItemModal'
-import Modal from '../../modals/Modal'
+import ItemModal from '../modals/ItemModal'
+import Modal from '../modals/Modal'
 
 const MyMenuItem = styled.div`
   background-color: var(--color-card-bg);

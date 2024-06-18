@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import UIButton from '../components/ui/Button'
+import UIButton from '../ui/Button'
 import { GenericModal, ModalActions } from './GenericModalStyles'
-import useOrder from '../hooks/useOrder'
-import useTotal from '../hooks/useTotal'
-import { resetOrder } from '../store/menuSlice'
+import useOrder from '../../hooks/useOrder'
+import useTotal from '../../hooks/useTotal'
+import { resetOrder } from '../../store/menuSlice'
 import { useDispatch } from 'react-redux'
-import useLocaleData from '../hooks/useLocaleData'
+import useLocaleData from '../../hooks/useLocaleData'
 
 const ModalContent = styled.div`
   display: flex;

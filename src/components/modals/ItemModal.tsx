@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux'
-import { StateMenuItem, unselectItem, updateOrder } from '../store/menuSlice'
+import { StateMenuItem, unselectItem, updateOrder } from '../../store/menuSlice'
 import styled from 'styled-components'
-import UIButton from '../components/ui/Button'
+import UIButton from '../../components/ui/Button'
 import { useEffect, useState } from 'react'
 import { GenericModal, ModalActions } from './GenericModalStyles'
-import useOrder from '../hooks/useOrder'
-import useLocaleData from '../hooks/useLocaleData'
+import useOrder from '../../hooks/useOrder'
+import useLocaleData from '../../hooks/useLocaleData'
 
 const ModalImage = styled.div`
   width: 18em;
