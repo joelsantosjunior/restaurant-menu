@@ -19,6 +19,11 @@ const ModalContent = styled.div`
     margin-bottom: 1em;
   }
 
+  p {
+    font-size: 1.2em;
+    max-width: 80%;
+  }
+
   ul {
     padding: 0;
     margin: 0;
