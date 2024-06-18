@@ -23,9 +23,9 @@
           }
         },
         "button": {
-          "cancel": {
-            "en": "Cancel",
-            "pt": "Cancelar"
+          "clean": {
+            "en": "Clean",
+            "pt": "Limpar"
           },
           "finish": {
             "en": "Finish Order",

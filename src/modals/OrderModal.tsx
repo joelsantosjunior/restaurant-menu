@@ -98,8 +98,8 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
             marginTop: '0',
           }}
         >
-          <UIButton type="secondary" onClick={handleCancelOrder}>
-            {t('page.menu.modal.button.cancel')}
+          <UIButton type="" onClick={handleCancelOrder}>
+            {t('page.menu.modal.button.clean')}
           </UIButton>
           <UIButton onClick={handleFinishOrder}>
             {t('page.menu.modal.button.finish')}
