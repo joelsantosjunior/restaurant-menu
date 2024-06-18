@@ -8,7 +8,6 @@ const MyMenuItem = styled.div`
   background-color: var(--color-card-bg);
   display: flex;
   flex-direction: row;
-  height: 8em;
   border-radius: 0.75em;
   padding: 0.5em;
   gap: 0.8em;
@@ -30,6 +29,10 @@ const CardContent = styled.div`
   div {
     display: flex;
     margin-top: auto;
+  }
+
+  h3 {
+    line-height: 1.3em;
   }
 
   p {
