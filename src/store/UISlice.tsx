@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type Locale = 'en' | 'pt'
 
+export const availeLocales = ['en', 'pt']
+
 export interface UIState {
   locale: Locale
   showOrderModel: boolean

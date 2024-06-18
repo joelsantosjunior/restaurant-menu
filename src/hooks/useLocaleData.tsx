@@ -1,9 +1,13 @@
-import { useSelector } from 'react-redux'
-import { AppState } from '../store/store'
+import { availeLocales } from '../store/UISlice'
 import { LocaleObject, localeDictionary } from '../utils/locale.utils'
+import useLocale from './useLocale'
 
 const useLocaleData = (): ((key: keyof LocaleObject) => string) => {
-  const locale = useSelector((state: AppState) => state.ui.locale).toString()
+  let locale = useLocale()
+
+  if (!availeLocales.includes(locale)) {
+    locale = 'en'
+  }
 
   return (key: keyof LocaleObject) => {
     return localeDictionary[`${key}.${locale}`]
