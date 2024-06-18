@@ -9,12 +9,12 @@ const QuickAccessMenu = styled.div`
   jusitfy-content: center;
   algin-items: center;
   flex-wrap: nowrap;
-  gap: 1em;
+  gap: 0.8em;
   padding: 1em 1em 1em 1em;
   position: relative;
 
   width: 100dvw;
-  margin-top: 3em;
+  // margin-top: 3em;
   overflow-x: scroll;
 
   &.fixed {
@@ -87,33 +87,42 @@ const MenuCategories = () => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (ref.current) {
-        if (window.scrollY > 170) {
+        if (window.scrollY > 160) {
           ref.current.classList.add('fixed')
+          ref.current.parentElement?.style?.setProperty(
+            'height',
+            `${ref.current.clientHeight}px`
+          )
         } else {
           ref.current.classList.remove('fixed')
+          ref.current.parentElement?.style?.setProperty('height', `auto`)
         }
       }
     })
   }, [])
 
   return (
-    <QuickAccessMenu ref={ref}>
-      {menuCategories.map(({ name, icon }) => (
-        <QuickAccessMenuItem
-          key={name}
-          onClick={() => {
-            scrollToCategory(name)
-          }}
-        >
-          <div>
-            <img src={`/img/${icon}`} alt="" />
-          </div>
-          <div style={{}}>
-            <p>{name}</p>
-          </div>
-        </QuickAccessMenuItem>
-      ))}
-    </QuickAccessMenu>
+    <>
+      <div>
+        <QuickAccessMenu ref={ref}>
+          {menuCategories.map(({ name, icon }) => (
+            <QuickAccessMenuItem
+              key={name}
+              onClick={() => {
+                scrollToCategory(name)
+              }}
+            >
+              <div>
+                <img src={`/img/${icon}`} alt="" />
+              </div>
+              <div style={{}}>
+                <p>{name}</p>
+              </div>
+            </QuickAccessMenuItem>
+          ))}
+        </QuickAccessMenu>
+      </div>
+    </>
   )
 }
 
