@@ -48,7 +48,6 @@ function App() {
         <Modal>
           <OrderModal
             onClose={() => {
-              console.log('close')
               dispatch(setShowOrderModel(false))
             }}
           ></OrderModal>
