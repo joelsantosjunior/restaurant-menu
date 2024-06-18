@@ -10,6 +10,7 @@ const LogoImg = styled.img`
 const MyHeader = styled.header`
   display: flex;
   justify-content: center;
+  margin: 3em 0;
 `
 
 const Header = () => {

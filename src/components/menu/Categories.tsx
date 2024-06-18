@@ -87,7 +87,7 @@ const MenuCategories = () => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (ref.current) {
-        if (window.scrollY > 160) {
+        if (window.scrollY > 210) {
           ref.current.classList.add('fixed')
           ref.current.parentElement?.style?.setProperty(
             'height',
@@ -95,7 +95,6 @@ const MenuCategories = () => {
           )
         } else {
           ref.current.classList.remove('fixed')
-          ref.current.parentElement?.style?.setProperty('height', `auto`)
         }
       }
     })
