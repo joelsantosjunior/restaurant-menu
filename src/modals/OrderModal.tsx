@@ -11,7 +11,6 @@ const ModalContent = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 100%;
   padding: 1em;
 
   h1:first-child {
@@ -64,7 +63,9 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   return (
     <GenericModal
       style={{
-        height: '32em',
+        minHeight: '32em',
+        maxHeight: '80vh',
+        overflowY: 'scroll',
       }}
     >
       <div onClick={onClose} className="close-button">
