@@ -1,11 +1,11 @@
-import { availeLocales } from '../store/UISlice'
+import { availableLocales } from '../store/UISlice'
 import { LocaleObject, localeDictionary } from '../utils/locale.utils'
 import useLocale from './useLocale'
 
 const useLocaleData = (): ((key: keyof LocaleObject) => string) => {
   let locale = useLocale()
 
-  if (!availeLocales.includes(locale)) {
+  if (!availableLocales.includes(locale)) {
     locale = 'en'
   }
 

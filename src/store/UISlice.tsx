@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type Locale = 'en' | 'pt'
 
-export const availeLocales = ['en', 'pt']
+export const availableLocales = ['en', 'pt']
 
 export interface UIState {
   locale: Locale
