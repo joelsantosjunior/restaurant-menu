@@ -1,18 +1,6 @@
 # Veggie Restro
 Project created to serve as a in-place menu for restaurants and bars
 
-## User Experience
-
-Os elementos visuais prototipados, são elementos básicos de uma interface para esse tipo de serviço, com botões, cards representando itens do menu, modais para visualização de informações como pedidos e itens. Além de uma barra fixa posicionada ao final da página, para um rápido acesso ao pedido, informações da mesa e o total gasto.
-
-Foi adicionado um Menu superior que ao ser feito scroll se torna fixo, possibilitando um acesso rápido a todas as categorias de itens no restaurante.
-
-O Botão de visualização do pedido apenas é exibido se houver ao menos um item no pedido, bem como o total do pedido.
-
-Foram adicionados pequenos selos que informam se o alimento é livre de gluten ou lactose.
-
-Project created to serve as an in-place menu for restaurants and bars
-
 # Who am I?
 
 My name is Joel Santos and I am a frontend developer. I have over 6 years of experience working for large and small companies, corporations and startups.
