@@ -97,7 +97,7 @@ const MenuCategories = () => {
   }, [])
 
   return (
-    <QuickAccessMenu className="fixed" ref={ref}>
+    <QuickAccessMenu ref={ref}>
       {menuCategories.map(({ name, icon }) => (
         <QuickAccessMenuItem
           key={name}
