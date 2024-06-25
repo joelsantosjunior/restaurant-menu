@@ -1,9 +1,16 @@
-# Veggie Bistro
+# Restaurant Menu Frontend Challenge
+
 The project was created to serve as an in-place menu for restaurants and bars
 
 # Who am I?
 
 My name is Joel Santos and I am a frontend developer. I have over 6 years of experience working for large and small companies, corporations, and startups.
+
+# Time limitation and initial considerations
+
+There was a problem with the first delivery which was the veggie-bistro menu (https://veggie-restro-client.vercel.app/) due to some communication problems I accidentally missed some important points to be implemented.
+
+For this second delivery there was a time limitation, the time window available to work on this project was from 25jun until 27jun, considering I have a full time job from 8 to 18h, the available time was even shorter.  This way, I had to carefully split the work into smaller tasks that would complement each other adding up to the final project in around 16 hours of work.
 
 # About the Project
 
@@ -18,6 +25,9 @@ Below is the user journey:
 - The user scans the QRCode
 - The user views the dishes
 - The user chooses a dish and adds it to the cart
+- The user can personalize the dish if available
+- The user views the order and modifies it if necessary
+- The user views the total order
 - The user finalizes the order
 
 # Technologies used
@@ -25,6 +35,7 @@ Below is the user journey:
 - React
 - React Router DOM
 - React-Redux
+- React Query
 - styled-components
 - Typescript
 - Vite
@@ -41,7 +52,8 @@ Due to time constraints (2 days to complete the project) some non-essential func
 - [x]  Quick access menu
 - [x]  Content translation
 - [x]  Interface translation
-- [ ]  Restaurant Information
+- [x]  API Integration
+- [x]  Restaurant Information
 - [ ]  Unit Tests
 
 Disclaimer: The monetary internationalization, although requested, was not included in the scope of this project, as it is not necessary, since the proposal is that the Menu is used in-place when visiting the establishment, therefore, there is no functional need to do currency conversion.
@@ -66,14 +78,6 @@ The following tools were used for the development of the user interface:
 - Google Fonts - Typography
 - StabilityAI, DreamStudio - Generate images for the dishes
 - ChatGPT - Generate files with dishes and drinks in a format that simulates the sending of data by a REST API
-
-## Screens
-![image](https://github.com/joelsantosjunior/veggie-restro-client/assets/8531514/d90fb963-d224-4ffd-85fd-3f98a970f300)
-![image](https://github.com/joelsantosjunior/veggie-restro-client/assets/8531514/746ef345-db4c-414c-9dba-46d6bdae8439)
-![image](https://github.com/joelsantosjunior/veggie-restro-client/assets/8531514/e35d5622-907f-4dc1-84b1-051547bd19aa)
-![image](https://github.com/joelsantosjunior/veggie-restro-client/assets/8531514/36f4c420-95f0-400f-8170-9673b1940517)
-![image](https://github.com/joelsantosjunior/veggie-restro-client/assets/8531514/e9ad6651-b0b8-41cf-b0a7-807e0bc89f8e)
-
 
 ## User Experience
 
