@@ -2,17 +2,47 @@
 
 The project was created to serve as an in-place menu for restaurants and bars
 
-# Who am I?
+## Who am I?
 
 My name is Joel Santos and I am a frontend developer. I have over 6 years of experience working for large and small companies, corporations, and startups.
 
-# Time limitation and initial considerations
+## Time limitation and initial considerations
 
 There was a problem with the first delivery which was the veggie-bistro menu (https://veggie-restro-client.vercel.app/) due to some communication problems I accidentally missed some important points to be implemented.
 
 For this second delivery there was a time limitation, the time window available to work on this project was from 25jun until 27jun, considering I have a full time job from 8 to 18h, the available time was even shorter.  This way, I had to carefully split the work into smaller tasks that would complement each other adding up to the final project in around 16 hours of work.
 
-# About the Project
+## Task breakdown 
+
+- [ ] Configure dev tools, inital libraries and project structure
+    - [ ] Configure React Router
+    - [ ] Configure Redux
+    - [ ] Configure React Query
+    - [ ] Configure CSS Modules
+- [ ] Configure React Query & Caching
+    - [ ] API Calls, Typescript Models
+- [ ] Export assets from Figma
+- [ ] Create App Layout and Main Components
+- [ ] Create Search Input
+- [ ] Mobile First
+    - [ ] Header Layout
+    - [ ] Categories Component
+    - [ ] Section Component
+    - [ ] Item Component
+    - [ ] Footer Component
+    - [ ] Item Modal
+        - [ ] Options Component
+    - [ ] Basket Modal
+        - [ ] Item
+        - [ ] Footer
+- [ ] Desktop Enhancement 
+    - [ ] Header
+    - [ ] Basket
+- [ ] Update UI Translation Labels
+- [ ] Update readme.md
+- [ ] Use new ViewTransitionAPI 
+
+## About the Project
 
 **Veggie Bistro** is a virtual menu, for a vegan restaurant, the proposal is that this service is used in-place, from a tablet or smartphone. The idea is that the customer, upon arriving at the establishment, finds a QR code that redirects them to the Menu site, where the order can be placed and automatically sent to the kitchen of the establishment as well as to the responsible waiter.
 
@@ -30,7 +60,7 @@ Below is the user journey:
 - The user views the total order
 - The user finalizes the order
 
-# Technologies used
+## Technologies used
 
 - React
 - React Router DOM
@@ -40,7 +70,7 @@ Below is the user journey:
 - Typescript
 - Vite
 
-# Functional Requirements
+## Functional Requirements
 
 Due to time constraints (2 days to complete the project) some non-essential functional requirements were not met so features with greater value delivery were done, such as translation and cart.
 
@@ -60,11 +90,11 @@ Disclaimer: The monetary internationalization, although requested, was not inclu
 
 Disclaimer 2: Unit tests were not done due to the time stipulated for project delivery, however, I would choose to write unit tests, especially for two items that I consider more important: cart logic and translation logic.
 
-# Non-Functional Requirements
+## Non-Functional Requirements
 
 - [x]  Responsiveness (Tablet & Mobile phone)
 
-# Development
+## Development
 
 The project was developed in stages, starting with the construction of the user interface, visual elements, colors, and typography definition.
 
