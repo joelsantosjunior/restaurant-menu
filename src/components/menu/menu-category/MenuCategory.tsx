@@ -16,6 +16,8 @@ const MenuCategory = ({
 }: MenuCategoryProps) => {
   const [collapsed, setCollapsed] = useState(false)
 
+  const sortedItems = items.sort((a, b) => a.position - b.position)
+
   return (
     <div className={styles.category}>
       <div
@@ -34,12 +36,11 @@ const MenuCategory = ({
       <div
         className={styles.content + ' ' + styles[collapsed ? 'collapsed' : '']}
       >
-        {items.map(
-          (item, i) =>
-            item.availabilityType === 'AVAILABLE_NOW' && (
-              <MenuListItem key={item.name + i} item={item} />
-            )
-        )}
+        {sortedItems
+          .filter((item) => item.availabilityType === 'AVAILABLE_NOW')
+          .map((item, i) => (
+            <MenuListItem key={item.name + i} item={item} />
+          ))}
       </div>
     </div>
   )
