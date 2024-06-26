@@ -7,6 +7,7 @@ import { Item } from '../../models/Item.model'
 import styles from './ItemModal.module.scss'
 import Modifier from '../menu/modifier/Modifier'
 import { ModifierItem } from '../../models/ModifierItem.model'
+import Quantifier from '../ui/quantifier/Quantifier'
 
 interface ItemModalProps {
   item: Item
@@ -64,7 +65,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
   }, [qtd, selectedItem])
 
   return (
-    <div className={styles.genericModal}>
+    <div className={styles.container}>
       <div onClick={onClose} className={styles['close-button']}>
         <img src="/img/close.svg" alt="" />
       </div>
@@ -96,23 +97,11 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       </div>
 
       <div className={styles.actions}>
-        <div>
-          <div
-            onClick={() => {
-              qtd > 0 && setQtd(qtd - 1)
-            }}
-          >
-            <img src="/img/minus.svg" alt="" />
-          </div>
-          <span>{qtd}</span>
-          <div
-            onClick={() => {
-              setQtd(qtd + 1)
-            }}
-          >
-            <img src="/img/plus.svg" alt="" />
-          </div>
-        </div>
+        <Quantifier
+          onChange={(value) => {
+            setQtd(value)
+          }}
+        ></Quantifier>
         <UIButton onClick={handleUpdateBasket}>
           {buttonText} • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
         </UIButton>
