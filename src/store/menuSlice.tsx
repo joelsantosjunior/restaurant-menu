@@ -24,15 +24,6 @@ const menuSlice = createSlice({
         selectedModifiers: action.payload?.selectedModifiers ?? [],
       })
     },
-    updateOrder: (state, action: PayloadAction<SelectedItem>) => {
-      if (state.selectedItems.some((i) => i.id === action.payload.id)) {
-        state.selectedItems = state.selectedItems.map((item) =>
-          item.id === action.payload.id ? action.payload : item
-        )
-      } else {
-        state.selectedItems.push(action.payload)
-      }
-    },
     unselectItem: (state, action: PayloadAction<Item>) => {
       state.selectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload.id
@@ -44,7 +35,6 @@ const menuSlice = createSlice({
   },
 })
 
-export const { selectItem, updateOrder, unselectItem, resetOrder } =
-  menuSlice.actions
+export const { selectItem, unselectItem, resetOrder } = menuSlice.actions
 
 export default menuSlice.reducer

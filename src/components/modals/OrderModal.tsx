@@ -31,8 +31,8 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
       </div>
       <div className={styles.modalSummary}>
         <ul>
-          {items.map((item) => (
-            <li key={item.name}>
+          {items.map((item, index) => (
+            <li key={item.name + index}>
               <div>
                 <p>
                   {item.qtd}x {item.name}

@@ -20,6 +20,11 @@
   &:active {
     scale: 0.95;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .icon {

@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux'
-import { unselectItem, updateOrder } from '../../store/menuSlice'
+import { selectItem } from '../../store/menuSlice'
 import UIButton from '../ui/button/Button'
-import { useState } from 'react'
-import useOrder from '../../hooks/useOrder'
+import { useEffect, useMemo, useState } from 'react'
 import { Item } from '../../models/Item.model'
 import styles from './ItemModal.module.scss'
 import Modifier from '../menu/modifier/Modifier'
 import { ModifierItem } from '../../models/ModifierItem.model'
 import Quantifier from '../ui/quantifier/Quantifier'
+import { Modifier as ModifierModel } from '../../models/Modifier.model'
 
 interface ItemModalProps {
   item: Item
@@ -17,36 +17,56 @@ interface ItemModalProps {
 const ItemModal = ({ item, onClose }: ItemModalProps) => {
   const dispatch = useDispatch()
 
-  const selectedItem = useOrder().find((i) => i.name === item.name)
+  const [qtd, setQtd] = useState(1)
 
-  const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
+  const [disabled, setDisabled] = useState(!!item?.modifiers?.length)
 
-  const [selectedModifiers, setSelectedModifiers] = useState<ModifierItem[]>([])
+  const [selectedModifiers, setSelectedModifiers] = useState<
+    Map<number, ModifierItem>
+  >(new Map())
 
   const handleAddItemToBasket = () => {
     dispatch(
-      updateOrder({
+      selectItem({
         ...item,
         qtd,
-        selectedModifiers: selectedModifiers,
+        selectedModifiers: Array.from(selectedModifiers.values()),
       })
     )
 
     onClose()
   }
 
-  const handleRemoveItemToBasket = () => {
-    dispatch(unselectItem(item))
-    onClose()
+  const handleModifierChange = (
+    modifier: ModifierModel,
+    modifierItem: ModifierItem
+  ) => {
+    setSelectedModifiers((prev) => {
+      const newModifiers = new Map(prev)
+      newModifiers.set(modifier.id, modifierItem)
+      return newModifiers
+    })
   }
 
-  const handleUpdateBasket = () => {
-    if (qtd > 0) {
-      handleAddItemToBasket()
-    } else {
-      handleRemoveItemToBasket()
+  useEffect(() => {
+    if (!item.modifiers) {
+      return
     }
-  }
+
+    if (selectedModifiers.size === item.modifiers.length) {
+      setDisabled(false)
+    }
+  }, [selectedModifiers, item.modifiers])
+
+  const price = useMemo(() => {
+    return (
+      item.price * qtd +
+      Array.from(selectedModifiers.values()).reduce(
+        (acc, modifier) => acc + modifier.price,
+        0
+      )
+    )
+  }, [selectedModifiers, qtd])
 
   return (
     <div className={styles.container}>
@@ -69,15 +89,12 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
       <div className={styles.modifiers}>
         {item.modifiers &&
-          item.modifiers.map((modifier) => (
+          item.modifiers.map((modifier, index) => (
             <Modifier
-              onModifierChange={(modifier) => {
-                setSelectedModifiers([
-                  ...selectedModifiers.filter((m) => m.id !== modifier.id),
-                  modifier,
-                ])
-              }}
-              key={modifier.id}
+              onModifierChange={(modifierItem) =>
+                handleModifierChange(modifier, modifierItem)
+              }
+              key={modifier.id + index}
               modifier={modifier}
             ></Modifier>
           ))}
@@ -89,8 +106,8 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
             setQtd(value)
           }}
         ></Quantifier>
-        <UIButton onClick={handleUpdateBasket}>
-          Add to Order • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
+        <UIButton disabled={disabled} onClick={handleAddItemToBasket}>
+          Add to Order • R$ {price.toFixed(2)}
         </UIButton>
       </div>
     </div>

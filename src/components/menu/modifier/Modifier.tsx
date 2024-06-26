@@ -11,8 +11,6 @@ interface ModiferProps {
 const Modifier = ({ modifier, onModifierChange }: ModiferProps) => {
   const [selectedModifier, setSelectedModifier] = useState<ModifierItem['id']>()
 
-  console.log(styles)
-
   return (
     <div className={styles.modifier}>
       <div className={styles.modifierHeader}>
