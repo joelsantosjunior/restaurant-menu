@@ -64,7 +64,8 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       Array.from(selectedModifiers.values()).reduce(
         (acc, modifier) => acc + modifier.price,
         0
-      )
+      ) *
+        qtd
     )
   }, [selectedModifiers, qtd])
 

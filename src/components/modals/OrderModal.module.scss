@@ -17,16 +17,15 @@ li {
 }
 
 .modalHeader {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modalSummary {
   background-color: white;
-  // border-bottom: 1px solid #dadada;
 
   li {
     padding: 0.7em 1em 1em 1em;
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid var(--border-color);
   }
 }
 
@@ -41,7 +40,7 @@ li {
   }
 
   li:first-child {
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid var(--border-color);
   }
 
   li:nth-child(2) {

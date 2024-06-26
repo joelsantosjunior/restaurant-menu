@@ -1,15 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './layout'
 import Menu from './routes/Menu'
-import Modal from './modal'
-import OrderModal from './components/modals/OrderModal'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppState } from './store/store'
+import { useDispatch } from 'react-redux'
 import {
   Locale,
   availableLocales,
   setLocale,
-  setShowOrderModel,
   setWebSettings,
 } from './store/UISlice'
 import { useEffect } from 'react'
@@ -30,13 +26,8 @@ function App() {
     queryFn: getRestaurantData,
   })
 
-  const showOrderModal = useSelector(
-    (state: AppState) => state.ui.showOrderModel
-  )
-
   const dispatch = useDispatch()
 
-  // TODO: Move to a custom hook
   useEffect(() => {
     let initialLocale = (navigator?.language?.split('-')?.[0] as Locale) || 'en'
 
@@ -67,15 +58,6 @@ function App() {
       <Layout>
         <RouterProvider router={router} />
       </Layout>
-      {showOrderModal && (
-        <Modal>
-          <OrderModal
-            onClose={() => {
-              dispatch(setShowOrderModel(false))
-            }}
-          ></OrderModal>
-        </Modal>
-      )}
     </>
   )
 }

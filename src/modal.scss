@@ -22,7 +22,7 @@
   overflow-y: scroll;
   background: var(--color-modal-bg);
   animation: showModal 0.2s ease-in-out;
-  background-color: #f8f9fa;
+  background-color: var(--bg-color-variation);
 
   @media (min-width: 700px) {
     width: 480px;

@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #f8f9fa;
+  background-color: var(--bg-color-variation);
   padding-bottom: 6em;
 
   h2 {
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color-variation);
   }
 
   div:nth-child(2) {
