@@ -1,7 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { Item } from '../models/Item.model'
+import { ModifierItem } from '../models/ModifierItem.model'
 
-type SelectedItem = Item & { qtd: number }
+type SelectedItem = Item & { qtd: number } & { selectedModifier?: ModifierItem }
 
 export interface MenuState {
   selectedItems: SelectedItem[]

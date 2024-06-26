@@ -1,0 +1,23 @@
+.quantifier {
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0 0.5em 0.3em;
+
+  span {
+    margin: 0 0.5em;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+
+    svg {
+    }
+  }
+}

@@ -3,9 +3,9 @@ import useOrder from '../../hooks/useOrder'
 import useTotal from '../../hooks/useTotal'
 import { resetOrder } from '../../store/menuSlice'
 import { useDispatch } from 'react-redux'
-import LocalizeText from '../ui/localize-text/LocalizeText'
-import styles from './order-modal.module.scss'
+import styles from './OrderModal.module.scss'
 import Menu from '../ui/menu/Menu'
+import Quantifier from '../ui/quantifier/Quantifier'
 
 interface OrderModalProps {
   onClose: () => void
@@ -26,7 +26,7 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   }
 
   return (
-    <div>
+    <div className={styles.modalContainer}>
       <div className={styles.modalHeader}>
         <Menu
           text="Basket"
@@ -40,9 +40,18 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
         <ul>
           {items.map((item) => (
             <li key={item.name}>
-              <p>
-                {item.qtd}x {item.name}
-              </p>
+              <div>
+                <p>
+                  {item.qtd}x {item.name}
+                </p>
+                {item.selectedModifier && (
+                  <p>
+                    {item.selectedModifier.name} (+R$
+                    {item.selectedModifier.price})
+                  </p>
+                )}
+                <Quantifier></Quantifier>
+              </div>
               <h3>R$ {item.price}</h3>
             </li>
           ))}
@@ -51,21 +60,19 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
       <div className={styles.modalTotal}>
         <ul>
           <li>
-            <p>Sub total:</p>
-            <p>R${total}</p>
+            <p>Sub total</p>
+            <p>
+              <strong> R${total}</strong>
+            </p>
           </li>
-        </ul>
-        <ul>
           <li>
-            <p>Total:</p>
-            <p>R${total}</p>
+            <h1>Total:</h1>
+            <h1>R${total}</h1>
           </li>
         </ul>
       </div>
       <div className={styles.modalActions}>
-        <div className={styles.modalActions}>
-          <UIButton onClick={handleFinishOrder}>Checkout now</UIButton>
-        </div>
+        <UIButton onClick={handleFinishOrder}>Checkout now</UIButton>
       </div>
     </div>
   )

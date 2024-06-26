@@ -4,8 +4,9 @@ import UIButton from '../ui/button/Button'
 import { useEffect, useState } from 'react'
 import useOrder from '../../hooks/useOrder'
 import { Item } from '../../models/Item.model'
-import styles from './item-modal.module.scss'
+import styles from './ItemModal.module.scss'
 import Modifier from '../menu/modifier/Modifier'
+import { ModifierItem } from '../../models/ModifierItem.model'
 
 interface ItemModalProps {
   item: Item
@@ -21,11 +22,14 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
 
+  const [selectedModifier, setSelectedModifier] = useState<ModifierItem>()
+
   const handleAddItemToBasket = () => {
     dispatch(
       updateOrder({
         ...item,
         qtd,
+        selectedModifier,
       })
     )
 
@@ -81,7 +85,13 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       <div className={styles.modifiers}>
         {item.modifiers &&
           item.modifiers.map((modifier) => (
-            <Modifier key={modifier.id} modifier={modifier}></Modifier>
+            <Modifier
+              onModifierChange={(modifier) => {
+                setSelectedModifier(modifier)
+              }}
+              key={modifier.id}
+              modifier={modifier}
+            ></Modifier>
           ))}
       </div>
 
