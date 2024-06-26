@@ -1,11 +1,10 @@
 import UIButton from '../ui/button/Button'
 import useOrder from '../../hooks/useOrder'
 import useTotal from '../../hooks/useTotal'
-import { resetOrder } from '../../store/menuSlice'
-import { useDispatch } from 'react-redux'
 import styles from './OrderModal.module.scss'
 import Menu from '../ui/menu/Menu'
 import Quantifier from '../ui/quantifier/Quantifier'
+import { getCorrectPrice } from '../../utils/getCorrectPrice'
 
 interface OrderModalProps {
   onClose: () => void
@@ -14,14 +13,8 @@ interface OrderModalProps {
 const OrderModal = ({ onClose }: OrderModalProps) => {
   const items = useOrder()
   const total = useTotal()
-  const dispatch = useDispatch()
 
   const handleFinishOrder = () => {
-    onClose()
-  }
-
-  const handleCancelOrder = () => {
-    dispatch(resetOrder())
     onClose()
   }
 
@@ -44,15 +37,16 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
                 <p>
                   {item.qtd}x {item.name}
                 </p>
-                {item.selectedModifier && (
-                  <p>
-                    {item.selectedModifier.name} (+R$
-                    {item.selectedModifier.price})
-                  </p>
-                )}
+                {item.selectedModifiers &&
+                  item.selectedModifiers.map((modifier) => (
+                    <p>
+                      {modifier.name} (+R$
+                      {modifier.price})
+                    </p>
+                  ))}
                 <Quantifier></Quantifier>
               </div>
-              <h3>R$ {item.price}</h3>
+              <h3>R${getCorrectPrice(item)}</h3>
             </li>
           ))}
         </ul>

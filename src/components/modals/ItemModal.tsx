@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { unselectItem, updateOrder } from '../../store/menuSlice'
 import UIButton from '../ui/button/Button'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useOrder from '../../hooks/useOrder'
 import { Item } from '../../models/Item.model'
 import styles from './ItemModal.module.scss'
@@ -18,8 +18,6 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
   const dispatch = useDispatch()
 
   const selectedItem = useOrder().find((i) => i.name === item.name)
-
-  const [buttonText, setButtonText] = useState('Add to Order')
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
 
@@ -49,20 +47,6 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       handleRemoveItemToBasket()
     }
   }
-
-  useEffect(() => {
-    if (qtd === 0) {
-      setButtonText('Remove from Order')
-      return
-    }
-
-    if (selectedItem) {
-      setButtonText('Update Order')
-      return
-    }
-
-    setButtonText('Add to Order')
-  }, [qtd, selectedItem])
 
   return (
     <div className={styles.container}>
@@ -106,7 +90,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
           }}
         ></Quantifier>
         <UIButton onClick={handleUpdateBasket}>
-          {buttonText} • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
+          Add to Order • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
         </UIButton>
       </div>
     </div>

@@ -1,10 +1,11 @@
+import { getCorrectPrice } from '../utils/getCorrectPrice'
 import useOrder from './useOrder'
 
 const useTotal = () => {
   const selectedItems = useOrder()
 
   const total = selectedItems.reduce(
-    (acc, item) => acc + item.price * item.qtd,
+    (acc, item) => acc + getCorrectPrice(item) * item.qtd,
     0
   )
 
