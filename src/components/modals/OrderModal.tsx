@@ -31,15 +31,15 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
       </div>
       <div className={styles.modalSummary}>
         <ul>
-          {items.map((item, index) => (
-            <li key={item.name + index}>
+          {items.map((item) => (
+            <li key={Math.random() * 1000}>
               <div>
                 <p>
                   {item.qtd}x {item.name}
                 </p>
                 {item.selectedModifiers &&
-                  item.selectedModifiers.map((modifier) => (
-                    <p>
+                  item.selectedModifiers.map((modifier, index) => (
+                    <p key={modifier.id + index}>
                       {modifier.name} (+R$
                       {modifier.price})
                     </p>
