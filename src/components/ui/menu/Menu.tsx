@@ -1,12 +1,50 @@
 import styles from './menu.module.scss'
 
-const Menu = () => {
+interface MenuProps {
+  text: string
+  backgroundColor?: string
+  color?: string
+  onClickLeftIcon?: () => void
+  leftIcon?: string
+  onClickRightIcon?: () => void
+  rightIcon?: string
+}
+
+const Menu = ({
+  text,
+  leftIcon,
+  onClickLeftIcon,
+  rightIcon,
+  onClickRightIcon,
+  backgroundColor,
+  color,
+}: MenuProps) => {
   return (
-    <div className={styles.menu}>
-      <div></div>
-      <p>Menu</p>
-      <div>
-        <img src="/hamburger.svg" alt="" />
+    <div
+      className={styles.menu}
+      style={{
+        backgroundColor,
+        color,
+      }}
+    >
+      <div
+        onClick={() => {
+          if (onClickLeftIcon) {
+            onClickLeftIcon()
+          }
+        }}
+      >
+        {leftIcon && <img src={leftIcon} alt="" />}
+      </div>
+      <p>{text}</p>
+      <div
+        onClick={() => {
+          if (onClickRightIcon) {
+            onClickRightIcon()
+          }
+        }}
+      >
+        <div>{rightIcon && <img src={rightIcon} alt="" />}</div>
       </div>
     </div>
   )

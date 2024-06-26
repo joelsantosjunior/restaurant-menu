@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ItemModal from '../../modals/ItemModal'
-import Modal from '../../modals/Modal'
+import Modal from '../../../modal'
 import { Item } from '../../../models/Item.model'
 import styles from './menu-list-item.module.scss'
 

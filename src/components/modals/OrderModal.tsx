@@ -1,49 +1,11 @@
-import styled from 'styled-components'
 import UIButton from '../ui/button/Button'
 import useOrder from '../../hooks/useOrder'
 import useTotal from '../../hooks/useTotal'
 import { resetOrder } from '../../store/menuSlice'
 import { useDispatch } from 'react-redux'
 import LocalizeText from '../ui/localize-text/LocalizeText'
-import styles from './generic-modal.module.scss'
-
-const ModalContent = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 1em;
-
-  h1:first-child {
-    line-height: 1.2em;
-    margin-right: 1em;
-    margin-bottom: 1em;
-  }
-
-  p {
-    font-size: 1.2em;
-    max-width: 80%;
-  }
-
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-
-  ul:nth-child(3) {
-    margin-top: auto;
-  }
-
-  li {
-    list-style: none;
-    margin: 0.5em 0;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  li:not(:last-child) {
-    border-bottom: 1px dashed var(--color-primary);
-  }
-`
+import styles from './order-modal.module.scss'
+import Menu from '../ui/menu/Menu'
 
 interface OrderModalProps {
   onClose: () => void
@@ -64,15 +26,17 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   }
 
   return (
-    <div className={styles.genericModal}>
-      <div onClick={onClose} className="close-button">
-        <img src="/img/close.svg" alt="" />
+    <div>
+      <div className={styles.modalHeader}>
+        <Menu
+          text="Basket"
+          backgroundColor="white"
+          color="#121212"
+          rightIcon="./close.svg"
+          onClickRightIcon={onClose}
+        ></Menu>
       </div>
-      <ModalContent>
-        <h1>
-          <LocalizeText>page.menu.modal.order.title</LocalizeText>
-        </h1>
-
+      <div className={styles.modalSummary}>
         <ul>
           {items.map((item) => (
             <li key={item.name}>
@@ -83,26 +47,26 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
             </li>
           ))}
         </ul>
-
+      </div>
+      <div className={styles.modalTotal}>
         <ul>
           <li>
-            <h3>
-              <LocalizeText>page.menu.modal.order.total</LocalizeText>
-            </h3>
-            <h3>R$ {total}</h3>
+            <p>Sub total:</p>
+            <p>R${total}</p>
           </li>
         </ul>
-
-        <br />
+        <ul>
+          <li>
+            <p>Total:</p>
+            <p>R${total}</p>
+          </li>
+        </ul>
+      </div>
+      <div className={styles.modalActions}>
         <div className={styles.modalActions}>
-          <UIButton type="" onClick={handleCancelOrder}>
-            <LocalizeText>page.menu.modal.button.clean</LocalizeText>
-          </UIButton>
-          <UIButton onClick={handleFinishOrder}>
-            <LocalizeText>page.menu.modal.button.finish</LocalizeText>
-          </UIButton>
+          <UIButton onClick={handleFinishOrder}>Checkout now</UIButton>
         </div>
-      </ModalContent>
+      </div>
     </div>
   )
 }

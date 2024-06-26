@@ -1,6 +1,6 @@
 import { MutableRefObject, ReactElement, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import '../../modal.scss'
+import './modal.scss'
 
 const Modal = ({ children }: { children: ReactElement }) => {
   const elRef: MutableRefObject<HTMLDivElement | null> = useRef(null)

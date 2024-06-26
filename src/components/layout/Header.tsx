@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <MyHeader>
       <LanguageToggle></LanguageToggle>
-      <Menu></Menu>
+      <Menu text="Menu" rightIcon="/hamburger.svg"></Menu>
       <div className="header-banner">
         <img src={webSettings?.bannerImage} alt="restaurant banner image" />
       </div>

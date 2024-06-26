@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './layout'
 import Menu from './routes/Menu'
-import Modal from './components/modals/Modal'
+import Modal from './modal'
 import OrderModal from './components/modals/OrderModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from './store/store'

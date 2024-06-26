@@ -4,7 +4,7 @@ import UIButton from '../ui/button/Button'
 import { useEffect, useState } from 'react'
 import useOrder from '../../hooks/useOrder'
 import { Item } from '../../models/Item.model'
-import styles from './generic-modal.module.scss'
+import styles from './item-modal.module.scss'
 import Modifier from '../menu/modifier/Modifier'
 
 interface ItemModalProps {
@@ -17,7 +17,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   const selectedItem = useOrder().find((i) => i.name === item.name)
 
-  const [buttonText, setButtonText] = useState('addToOrder')
+  const [buttonText, setButtonText] = useState('Add to Order')
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
 
@@ -47,16 +47,16 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   useEffect(() => {
     if (qtd === 0) {
-      setButtonText('removeFromOrder')
+      setButtonText('Remove from Order')
       return
     }
 
     if (selectedItem) {
-      setButtonText('updateOrder')
+      setButtonText('Update Order')
       return
     }
 
-    setButtonText('addToOrder')
+    setButtonText('Add to Order')
   }, [qtd, selectedItem])
 
   return (
@@ -104,7 +104,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
           </div>
         </div>
         <UIButton onClick={handleUpdateBasket}>
-          Add to Order • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
+          {buttonText} • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
         </UIButton>
       </div>
     </div>
