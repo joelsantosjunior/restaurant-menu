@@ -1,25 +1,37 @@
 import styled from 'styled-components'
-import LanguageToggle from '../ui/LanguageToggle'
-
-const LogoImg = styled.img`
-  margin-top: 2em;
-  height: 110px;
-  position: sticky;
-  top: 0;
-`
+import Menu from '../ui/menu/Menu'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../store/store'
+import LanguageToggle from '../ui/language-toggle/LanguageToggle'
 
 const MyHeader = styled.header`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 3em 0;
   position: relative;
+
+  .header-banner {
+    height: 150px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
 `
 
 const Header = () => {
+  const webSettings = useSelector((state: AppState) => state.ui.appSettings)
+
   return (
     <MyHeader>
       <LanguageToggle></LanguageToggle>
-      <LogoImg src="/img/veggie-bistro-logo.png" alt="" />
+      <Menu></Menu>
+      <div className="header-banner">
+        <img src={webSettings?.bannerImage} alt="restaurant banner image" />
+      </div>
     </MyHeader>
   )
 }

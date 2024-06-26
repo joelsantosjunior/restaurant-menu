@@ -10,9 +10,9 @@ import {
   availableLocales,
   setLocale,
   setShowOrderModel,
+  setWebSettings,
 } from './store/UISlice'
 import { useEffect } from 'react'
-import { setMenu } from './store/menuSlice'
 import { useQuery } from '@tanstack/react-query'
 import { getRestaurantData } from './api/rest-api'
 
@@ -25,15 +25,19 @@ const router = createBrowserRouter([
 
 function App() {
   const { data, isPending, isFetching, isError } = useQuery({
-    queryKey: ['menu'],
+    queryKey: ['restaurantData'],
     queryFn: getRestaurantData,
   })
-
-  const dispatch = useDispatch()
 
   const showOrderModal = useSelector(
     (state: AppState) => state.ui.showOrderModel
   )
+
+  const dispatch = useDispatch()
+
+  if (data) {
+    dispatch(setWebSettings(data.webSettings))
+  }
 
   // TODO: Move to a custom hook
   useEffect(() => {
@@ -44,7 +48,6 @@ function App() {
     }
 
     dispatch(setLocale(initialLocale as Locale))
-    dispatch(setMenu(initialLocale))
   }, [])
 
   if (isPending || isFetching) {

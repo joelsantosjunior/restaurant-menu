@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import UIButton from '../ui/Button'
-import { GenericModal, ModalActions } from './GenericModalStyles'
+import UIButton from '../ui/button/Button'
 import useOrder from '../../hooks/useOrder'
 import useTotal from '../../hooks/useTotal'
 import { resetOrder } from '../../store/menuSlice'
 import { useDispatch } from 'react-redux'
-import LocalizeText from '../LocalizeText'
+import LocalizeText from '../ui/localize-text/LocalizeText'
+import styles from './generic-modal.module.scss'
 
 const ModalContent = styled.div`
   display: flex;
@@ -64,13 +64,7 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
   }
 
   return (
-    <GenericModal
-      style={{
-        minHeight: '32em',
-        maxHeight: '80vh',
-        overflowY: 'scroll',
-      }}
-    >
+    <div className={styles.genericModal}>
       <div onClick={onClose} className="close-button">
         <img src="/img/close.svg" alt="" />
       </div>
@@ -100,20 +94,16 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
         </ul>
 
         <br />
-        <ModalActions
-          style={{
-            marginTop: '0',
-          }}
-        >
+        <div className={styles.modalActions}>
           <UIButton type="" onClick={handleCancelOrder}>
             <LocalizeText>page.menu.modal.button.clean</LocalizeText>
           </UIButton>
           <UIButton onClick={handleFinishOrder}>
             <LocalizeText>page.menu.modal.button.finish</LocalizeText>
           </UIButton>
-        </ModalActions>
+        </div>
       </ModalContent>
-    </GenericModal>
+    </div>
   )
 }
 

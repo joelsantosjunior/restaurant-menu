@@ -1,24 +1,37 @@
-import { useSelector } from 'react-redux'
-import { AppState } from '../store/store'
-import MenuItemSection from '../components/menu/MenuItemSection'
-import MenuCategories from '../components/menu/Categories'
+import MenuCategories from '../components/menu/categories-carousel/CategoriesCarousel'
+import { useQuery } from '@tanstack/react-query'
+import { getMenuData } from '../api/rest-api'
+import MenuItemSection from '../components/menu/menu-category/MenuCategory'
+import TextField from '../components/ui/text-field/TextField'
+import styled from 'styled-components'
 
-const Menu = () => {
-  const menu = useSelector((state: AppState) => state.menu.availableItems)
+const MenuSectionStyled = styled.div`
+  padding: 16px;
+`
+
+const MenuSection = () => {
+  const { data } = useQuery({
+    queryKey: ['menu'],
+    queryFn: getMenuData,
+  })
+
+  const categories =
+    data?.sections.sort((a, b) => a.position - b.position) || []
 
   return (
-    <div>
-      <MenuCategories></MenuCategories>
-      {menu.map((category) => (
+    <MenuSectionStyled>
+      <TextField></TextField>
+      <MenuCategories data={categories}></MenuCategories>
+      {categories.map((category) => (
         <MenuItemSection
-          key={category.category}
-          quickAccessId={category.quick_access.name}
-          category={category.category}
+          key={category.id}
+          quickAccessId={category.name}
+          category={category.name}
           items={category.items}
         />
       ))}
-    </div>
+    </MenuSectionStyled>
   )
 }
 
-export default Menu
+export default MenuSection

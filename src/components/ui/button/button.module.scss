@@ -1,0 +1,44 @@
+.uiButton {
+  padding: 0.5em 1em;
+
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 40px;
+  border: none;
+  box-shadow: var(--shadow-card);
+
+  cursor: pointer;
+  height: min(3em, 100%);
+  padding: 0.8em 2em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    scale: 0.95;
+  }
+}
+
+.icon {
+  padding: 0.2em;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-primary);
+
+  img {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-secondary);
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-secondary);
+}

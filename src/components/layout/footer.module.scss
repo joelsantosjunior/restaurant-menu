@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+
+  h2 {
+    text-align: left;
+    color: var(--color-text-primary);
+  }
+
+  div:nth-child(1) {
+    height: 4em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+  }
+
+  div:nth-child(2) {
+    min-height: 4em;
+    padding: 8px 24px calc(env(safe-area-inset-bottom) + 24px) 24px;
+    display: flex;
+    gap: 1em;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}

@@ -1,42 +1,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
-import UIButton from '../ui/Button'
 import { setShowOrderModel } from '../../store/UISlice'
-import useTotal from '../../hooks/useTotal'
-import LocalizeText from '../LocalizeText'
-
-const MyFooter = styled.footer`
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100vw;
-  height: calc(var(--footer-height) + env(safe-area-inset-bottom));
-  background-color: var(--color-bg);
-  color: var(--color-text-secondary);
-
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0 1em calc(env(safe-area-inset-bottom)) 1em;
-
-  h2 {
-    text-align: left;
-    color: var(--color-text-primary);
-  }
-
-  div {
-    button {
-      display: inline;
-    }
-  }
-`
+import styles from './footer.module.scss'
+import UIButton from '../ui/button/Button'
+import useOrder from '../../hooks/useOrder'
 
 const Footer: React.FC = () => {
   const dispatch = useDispatch()
 
-  const total = useTotal()
+  const order = useOrder()
 
   const handleFinishOrder = () => {
     dispatch(setShowOrderModel(true))
@@ -44,18 +16,18 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      {total > 0 && (
-        <MyFooter className="slide-from-bottom-enter-active">
-          <h2 className="price">
-            <LocalizeText>page.menu.footer.total</LocalizeText>: R$ {total}
-          </h2>
-          <div>
-            <UIButton onClick={handleFinishOrder}>
-              <LocalizeText>page.menu.footer.button</LocalizeText>
+      <div className={styles.footer}>
+        <div>
+          <a href="">View allergy information</a>
+        </div>
+        <div>
+          {order.length > 0 && (
+            <UIButton type="primary" onClick={handleFinishOrder}>
+              Your basket • {order.length} item
             </UIButton>
-          </div>
-        </MyFooter>
-      )}
+          )}
+        </div>
+      </div>
     </>
   )
 }

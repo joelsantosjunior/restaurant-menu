@@ -1,0 +1,30 @@
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img {
+  transition: all 0.3s;
+}
+
+.down {
+  transform: rotateZ(180deg);
+}
+
+.content {
+  transition: all 0.3s;
+}
+
+.collapsed {
+  transform-origin: top;
+  transform: scale3d(1, 0, 0);
+  max-height: 0;
+  opacity: 0;
+}

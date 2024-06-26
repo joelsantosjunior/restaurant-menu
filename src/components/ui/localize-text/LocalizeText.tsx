@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
-import { AppState } from '../store/store'
-import { localeDictionary } from '../utils/locale.utils'
+import { AppState } from '../../../store/store'
+import { localeDictionary } from '../../../utils/locale.utils'
 
 const LocalizeText = ({
   textKey,

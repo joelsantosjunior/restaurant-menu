@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,900&family=Nunito:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root,
 *,
@@ -18,18 +18,14 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Theme Variables */
-  --color-primary: #5f6c37;
+  --color-primary: #4f372f;
   --color-secondary: #bc6c27;
   --color-tertiary: #28371a;
   --color-quaternary: #fdfadf;
   --color-quinary: #577590;
 
-  --color-text: var(--color-tertiary);
+  --color-text: #121212;
   --color-text-secondary: var(--color-quaternary);
-
-  --color-bg: var(--color-tertiary);
-  --color-card-bg: #eef1e4;
-  --color-modal-bg: white;
 
   --footer-height: 4em;
   --shadow-card: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -38,12 +34,13 @@
 body {
   margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: flex-start; */
   overflow-y: scroll;
   color: var(--color-text);
   max-width: 58em;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 /* Typography */
@@ -54,13 +51,14 @@ h3,
 h4,
 h5,
 button {
-  font-family: 'Merriweather', serif;
+  font-family: 'Roboto', serif;
+  /* font-family: 'Merriweather', serif; */
   letter-spacing: -5%;
 }
 
 p,
 span {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1,

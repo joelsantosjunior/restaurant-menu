@@ -1,0 +1,17 @@
+.toggle {
+  position: absolute;
+  top: 1.2em;
+  left: 1em;
+  display: flex;
+  gap: 1em;
+  color: white;
+
+  div {
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

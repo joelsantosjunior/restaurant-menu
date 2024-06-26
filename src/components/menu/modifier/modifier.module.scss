@@ -1,0 +1,34 @@
+.modifier {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modifierHeader {
+  padding: 1em 1em;
+  background-color: #f8f9fa;
+}
+
+.modifierOptions {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em;
+  margin-bottom: 2em;
+
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.modifierOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 0;
+
+  label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

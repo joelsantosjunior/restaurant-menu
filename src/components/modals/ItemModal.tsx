@@ -1,52 +1,14 @@
 import { useDispatch } from 'react-redux'
-import { StateMenuItem, unselectItem, updateOrder } from '../../store/menuSlice'
-import styled from 'styled-components'
-import UIButton from '../../components/ui/Button'
+import { unselectItem, updateOrder } from '../../store/menuSlice'
+import UIButton from '../ui/button/Button'
 import { useEffect, useState } from 'react'
-import { GenericModal, ModalActions } from './GenericModalStyles'
 import useOrder from '../../hooks/useOrder'
-import LocalizeText from '../LocalizeText'
-
-const ModalImage = styled.div`
-  width: 18em;
-  border-radius: 1em 0 0 1em;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    border-radius: 1em 1em 0 0;
-    width: 100%;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`
-
-const ModalContent = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 1em;
-
-  h1:first-child {
-    line-height: 1.2em;
-    margin-right: 1em;
-  }
-
-  .img-info {
-    margin-top: 1em;
-  }
-`
-
-const CardBottomInfoImg = styled.img`
-  margin-top: auto;
-  width: 2em;
-`
+import { Item } from '../../models/Item.model'
+import styles from './generic-modal.module.scss'
+import Modifier from '../menu/modifier/Modifier'
 
 interface ItemModalProps {
-  item: StateMenuItem
+  item: Item
   onClose: () => void
 }
 
@@ -98,60 +60,54 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
   }, [qtd, selectedItem])
 
   return (
-    <GenericModal>
-      <div onClick={onClose} className="close-button">
+    <div className={styles.genericModal}>
+      <div onClick={onClose} className={styles['close-button']}>
         <img src="/img/close.svg" alt="" />
       </div>
-      <ModalImage>
-        <img src={'/img/' + item.img} alt={item.name} />
-      </ModalImage>
-      <ModalContent>
-        <h1>{item.name}</h1>
-        <p>{item.ingredients}</p>
-        <div className="img-info">
-          {!item.contains_gluten && (
-            <CardBottomInfoImg
-              src="/img/gluten-free.png"
-              alt="Contains gluten"
-            />
-          )}
-          {!item.contains_lactose && (
-            <CardBottomInfoImg
-              src="/img/diary-free.png"
-              alt="Contains Lactose"
-            />
-          )}
+
+      <div className={styles.banner}>
+        {item?.images?.[0]?.image && (
+          <img src={item.images?.[0]?.image} alt={item.name} />
+        )}
+      </div>
+
+      <div className={styles.content}>
+        <div>
+          <h1>{item.name}</h1>
+          <p>{item.description}</p>
         </div>
-        <h1 className="price">R$ {qtd ? item.price * qtd : item.price}</h1>
-        <br />
-        <ModalActions>
-          <div>
-            <UIButton
-              type="icon"
-              onClick={() => {
-                qtd > 0 && setQtd(qtd - 1)
-              }}
-            >
-              <img src="/img/minus.svg" alt="" />
-            </UIButton>
-            <input type="text" disabled={true} value={qtd} />
-            <UIButton
-              type="primary icon"
-              onClick={() => {
-                setQtd(qtd + 1)
-              }}
-            >
-              <img src="/img/plus.svg" alt="" />
-            </UIButton>
+      </div>
+
+      <div className={styles.modifiers}>
+        {item.modifiers &&
+          item.modifiers.map((modifier) => (
+            <Modifier key={modifier.id} modifier={modifier}></Modifier>
+          ))}
+      </div>
+
+      <div className={styles.actions}>
+        <div>
+          <div
+            onClick={() => {
+              qtd > 0 && setQtd(qtd - 1)
+            }}
+          >
+            <img src="/img/minus.svg" alt="" />
           </div>
-          <UIButton onClick={handleUpdateBasket}>
-            <LocalizeText
-              textKey={'page.menu.modal.button.' + buttonText}
-            ></LocalizeText>
-          </UIButton>
-        </ModalActions>
-      </ModalContent>
-    </GenericModal>
+          <span>{qtd}</span>
+          <div
+            onClick={() => {
+              setQtd(qtd + 1)
+            }}
+          >
+            <img src="/img/plus.svg" alt="" />
+          </div>
+        </div>
+        <UIButton onClick={handleUpdateBasket}>
+          Add to Order • R$ {(qtd ? item.price * qtd : item.price).toFixed(2)}
+        </UIButton>
+      </div>
+    </div>
   )
 }
 

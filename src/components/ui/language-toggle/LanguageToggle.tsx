@@ -1,35 +1,17 @@
-import styled from 'styled-components'
-import { Locale, availableLocales, setLocale } from '../../store/UISlice'
+import { Locale, availableLocales, setLocale } from '../../../store/UISlice'
 import { useDispatch } from 'react-redux'
-import { resetOrder, setMenu } from '../../store/menuSlice'
-
-const MyLanguageToggle = styled.div`
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  display: flex;
-  gap: 1em;
-
-  div {
-    cursor: pointer;
-    transition: transform 0.2s;
-
-    &:active {
-      transform: scale(0.9);
-    }
-  }
-`
+import { resetOrder } from '../../../store/menuSlice'
+import styles from './language-toggle.module.scss'
 
 const LanguageToggle = () => {
   const dispatch = useDispatch()
   const handleChangeLocale = (locale: string) => {
-    dispatch(setMenu(locale as Locale))
     dispatch(setLocale(locale as Locale))
     dispatch(resetOrder())
   }
 
   return (
-    <MyLanguageToggle>
+    <div className={styles.toggle}>
       {availableLocales.map((locale) => (
         <div
           onClick={() => {
@@ -40,7 +22,7 @@ const LanguageToggle = () => {
           {locale} {locale === 'pt' ? '🇧🇷' : '🇺🇸'}
         </div>
       ))}
-    </MyLanguageToggle>
+    </div>
   )
 }
 
