@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #f8f9fa;
+  padding-bottom: 6em;
 
   h2 {
     text-align: left;
@@ -20,14 +21,13 @@
   }
 
   div:nth-child(2) {
+    position: fixed;
     min-height: 4em;
     padding: 8px 24px calc(env(safe-area-inset-bottom) + 24px) 24px;
     display: flex;
     gap: 1em;
     width: 100%;
 
-    button {
-      width: 100%;
-    }
+    bottom: 0;
   }
 }
