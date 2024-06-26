@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setShowOrderModel } from '../../store/UISlice'
-import styles from './Footer.module.scss'
+import styles from './footer.module.scss'
 import UIButton from '../ui/button/Button'
 import useOrder from '../../hooks/useOrder'
 
