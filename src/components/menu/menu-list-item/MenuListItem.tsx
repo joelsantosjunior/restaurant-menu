@@ -8,12 +8,17 @@ import useOrder from '../../../hooks/useOrder'
 const MenuListItem = ({ item }: { item: Item }) => {
   const [showModal, setShowModal] = useState(false)
 
-  const itemInOrder = useOrder().find((i) => i.id === item.id)
+  const itemInOrder = useOrder()
+    .filter((i) => i.id === item.id)
+    .map((i) => i.qtd)
+    .reduce((a, b) => a + b, 0)
 
-  const price =
-    itemInOrder && itemInOrder.selectedModifier
-      ? itemInOrder.selectedModifier?.price
-      : item.price
+  // Always use the first modifier value as the initial value
+  // to avoid showing 0 as the price
+  const intialModifierValue =
+    (item.modifiers && item.modifiers[0].items[0].price) ?? 0
+
+  const price = (item.price || intialModifierValue).toFixed(2).replace('.', ',')
 
   return (
     <>
@@ -25,8 +30,8 @@ const MenuListItem = ({ item }: { item: Item }) => {
       >
         <div className={styles.menuItemContent}>
           <h3>
-            {itemInOrder && (
-              <span className={styles.badge}>{itemInOrder.qtd}</span>
+            {itemInOrder > 0 && (
+              <span className={styles.badge}>{itemInOrder}</span>
             )}
             {item.name}
           </h3>
