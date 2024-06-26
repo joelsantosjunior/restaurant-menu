@@ -11,6 +11,8 @@ interface ModiferProps {
 const Modifier = ({ modifier, onModifierChange }: ModiferProps) => {
   const [selectedModifier, setSelectedModifier] = useState<ModifierItem['id']>()
 
+  const sorted = [...modifier.items].sort((a, b) => a.position - b.position)
+
   return (
     <div className={styles.modifier}>
       <div className={styles.modifierHeader}>
@@ -20,8 +22,8 @@ const Modifier = ({ modifier, onModifierChange }: ModiferProps) => {
         <p>Select {modifier.minChoices} Option</p>
       </div>
       <div className={styles.modifierOptions}>
-        {modifier.items &&
-          modifier.items.map((option) => (
+        {sorted &&
+          sorted.map((option) => (
             <div
               onClick={() => {
                 onModifierChange && onModifierChange(option)
