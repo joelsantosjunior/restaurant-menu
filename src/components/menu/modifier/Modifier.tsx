@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Modifier as ModiferModel } from '../../../models/Modifier.model'
 import { ModifierItem } from '../../../models/ModifierItem.model'
 import styles from './modifier.module.scss'
@@ -8,6 +9,10 @@ interface ModiferProps {
 }
 
 const Modifier = ({ modifier, onModifierChange }: ModiferProps) => {
+  const [selectedModifier, setSelectedModifier] = useState<ModifierItem['id']>()
+
+  console.log(styles)
+
   return (
     <div className={styles.modifier}>
       <div className={styles.modifierHeader}>
@@ -22,22 +27,24 @@ const Modifier = ({ modifier, onModifierChange }: ModiferProps) => {
             <div
               onClick={() => {
                 onModifierChange && onModifierChange(option)
+                setSelectedModifier(option.id)
               }}
               key={option.name}
               className={styles.modifierOption}
             >
-              <label htmlFor={option.name}>
+              <label
+                className={
+                  styles.radioLabel +
+                  ' ' +
+                  (selectedModifier === option.id ? styles.selected : '')
+                }
+                htmlFor={option.name}
+              >
                 <span>
                   <strong>{option.name}</strong>
                 </span>
                 <span>R${option.price.toFixed(2)}</span>
               </label>
-              <input
-                id={option.name}
-                type="radio"
-                name={modifier.name}
-                value={option.price}
-              />
             </div>
           ))}
       </div>

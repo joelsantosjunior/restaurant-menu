@@ -23,14 +23,14 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   const [qtd, setQtd] = useState(selectedItem?.qtd || 1)
 
-  const [selectedModifier, setSelectedModifier] = useState<ModifierItem>()
+  const [selectedModifiers, setSelectedModifiers] = useState<ModifierItem[]>([])
 
   const handleAddItemToBasket = () => {
     dispatch(
       updateOrder({
         ...item,
         qtd,
-        selectedModifier,
+        selectedModifiers: selectedModifiers,
       })
     )
 
@@ -88,7 +88,10 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
           item.modifiers.map((modifier) => (
             <Modifier
               onModifierChange={(modifier) => {
-                setSelectedModifier(modifier)
+                setSelectedModifiers([
+                  ...selectedModifiers.filter((m) => m.id !== modifier.id),
+                  modifier,
+                ])
               }}
               key={modifier.id}
               modifier={modifier}

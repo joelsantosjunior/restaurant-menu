@@ -1,19 +1,19 @@
-import MenuItem from '../menu-list-item/MenuListItem'
+import MenuListItem from '../menu-list-item/MenuListItem'
 import { Item } from '../../../models/Item.model'
 import { useState } from 'react'
-import styles from './menu-category.module.scss'
+import styles from './MenuCategory.module.scss'
 
-interface MenuItemSectionProps {
+interface MenuCategoryProps {
   category: string
   quickAccessId: string
   items: Item[]
 }
 
-const MenuItemSection = ({
+const MenuCategory = ({
   category,
   items,
   quickAccessId,
-}: MenuItemSectionProps) => {
+}: MenuCategoryProps) => {
   const [collapsed, setCollapsed] = useState(false)
 
   return (
@@ -37,7 +37,7 @@ const MenuItemSection = ({
         {items.map(
           (item, i) =>
             item.availabilityType === 'AVAILABLE_NOW' && (
-              <MenuItem key={item.name + i} item={item} />
+              <MenuListItem key={item.name + i} item={item} />
             )
         )}
       </div>
@@ -45,4 +45,4 @@ const MenuItemSection = ({
   )
 }
 
-export default MenuItemSection
+export default MenuCategory

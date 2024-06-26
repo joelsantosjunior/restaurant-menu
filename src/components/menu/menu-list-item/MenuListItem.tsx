@@ -2,10 +2,18 @@ import { useState } from 'react'
 import ItemModal from '../../modals/ItemModal'
 import Modal from '../../../modal'
 import { Item } from '../../../models/Item.model'
-import styles from './menu-list-item.module.scss'
+import styles from './MenuListItem.module.scss'
+import useOrder from '../../../hooks/useOrder'
 
-const MenuItem = ({ item }: { item: Item }) => {
+const MenuListItem = ({ item }: { item: Item }) => {
   const [showModal, setShowModal] = useState(false)
+
+  const itemInOrder = useOrder().find((i) => i.id === item.id)
+
+  const price =
+    itemInOrder && itemInOrder.selectedModifier
+      ? itemInOrder.selectedModifier?.price
+      : item.price
 
   return (
     <>
@@ -16,9 +24,14 @@ const MenuItem = ({ item }: { item: Item }) => {
         }}
       >
         <div className={styles.menuItemContent}>
-          <h3>{item.name}</h3>
+          <h3>
+            {itemInOrder && (
+              <span className={styles.badge}>{itemInOrder.qtd}</span>
+            )}
+            {item.name}
+          </h3>
           <p>{item.description}</p>
-          <h3>R$ {item.price}</h3>
+          <h3>R$ {price}</h3>
         </div>
         <div>
           {item.images && (
@@ -44,4 +57,4 @@ const MenuItem = ({ item }: { item: Item }) => {
   )
 }
 
-export default MenuItem
+export default MenuListItem

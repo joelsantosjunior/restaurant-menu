@@ -1,4 +1,4 @@
-import styles from './text-field.module.scss'
+import styles from './TextField.module.scss'
 
 interface TextFieldProps {
   value?: string

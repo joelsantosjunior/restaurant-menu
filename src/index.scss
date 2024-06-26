@@ -8,7 +8,7 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -18,29 +18,26 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Theme Variables */
-  --color-primary: #4f372f;
-  --color-secondary: #bc6c27;
-  --color-tertiary: #28371a;
-  --color-quaternary: #fdfadf;
-  --color-quinary: #577590;
+  --primary-color: #4f372f;
+  --primary-color-hover: var(--primary-color);
 
-  --color-text: #121212;
-  --color-text-secondary: var(--color-quaternary);
+  --primary-color-text: #121212;
+  --color-text-variation: #464646;
 
   --footer-height: 4em;
   --shadow-card: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  --nav-bg-color: var(--primary-color);
+
+  --desktop-breakpoint: 700px;
 }
 
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: flex-start; */
   overflow-y: scroll;
-  color: var(--color-text);
-  max-width: 58em;
-  /* margin: 0 auto; */
+  color: var(--primary-color-text);
 }
 
 /* Typography */
@@ -51,14 +48,7 @@ h3,
 h4,
 h5,
 button {
-  font-family: 'Roboto', serif;
-  /* font-family: 'Merriweather', serif; */
   letter-spacing: -5%;
-}
-
-p,
-span {
-  font-family: 'Roboto', sans-serif;
 }
 
 h1,
@@ -74,19 +64,4 @@ h1,
 h2,
 h3 {
   letter-spacing: -0.04em;
-}
-
-.price {
-  font-family: 'Inter', sans-serif;
-  color: var(--color-secondary);
-  font-weight: normal;
-  letter-spacing: -0.1em;
-  margin: 0;
-  text-align: right;
-}
-
-@media screen and (min-width: 1024px) {
-  :root {
-    font-size: 16px;
-  }
 }

@@ -1,13 +1,9 @@
-import MenuCategories from '../components/menu/categories-carousel/CategoriesCarousel'
+import CategoriesCarousel from '../components/menu/categories-carousel/CategoriesCarousel'
 import { useQuery } from '@tanstack/react-query'
 import { getMenuData } from '../api/rest-api'
-import MenuItemSection from '../components/menu/menu-category/MenuCategory'
+import MenuCategory from '../components/menu/menu-category/MenuCategory'
 import TextField from '../components/ui/text-field/TextField'
-import styled from 'styled-components'
-
-const MenuSectionStyled = styled.div`
-  padding: 16px;
-`
+import styles from './Menu.module.scss'
 
 const MenuSection = () => {
   const { data } = useQuery({
@@ -18,19 +14,21 @@ const MenuSection = () => {
   const categories =
     data?.sections.sort((a, b) => a.position - b.position) || []
 
+  const sections = categories.map((category) => (
+    <MenuCategory
+      key={category.id}
+      quickAccessId={category.name}
+      category={category.name}
+      items={category.items}
+    />
+  ))
+
   return (
-    <MenuSectionStyled>
+    <div className={styles.menuContainer}>
       <TextField></TextField>
-      <MenuCategories data={categories}></MenuCategories>
-      {categories.map((category) => (
-        <MenuItemSection
-          key={category.id}
-          quickAccessId={category.name}
-          category={category.name}
-          items={category.items}
-        />
-      ))}
-    </MenuSectionStyled>
+      <CategoriesCarousel data={categories}></CategoriesCarousel>
+      {sections}
+    </div>
   )
 }
 

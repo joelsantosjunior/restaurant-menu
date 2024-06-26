@@ -2,7 +2,9 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { Item } from '../models/Item.model'
 import { ModifierItem } from '../models/ModifierItem.model'
 
-type SelectedItem = Item & { qtd: number } & { selectedModifier?: ModifierItem }
+type SelectedItem = Item & { qtd: number } & {
+  selectedModifiers?: Array<ModifierItem>
+}
 
 export interface MenuState {
   selectedItems: SelectedItem[]
@@ -17,7 +19,10 @@ const menuSlice = createSlice({
   initialState: initialState,
   reducers: {
     selectItem: (state, action: PayloadAction<SelectedItem>) => {
-      state.selectedItems.push(action.payload)
+      state.selectedItems.push({
+        ...action.payload,
+        selectedModifiers: action.payload?.selectedModifiers ?? [],
+      })
     },
     updateOrder: (state, action: PayloadAction<SelectedItem>) => {
       if (state.selectedItems.some((i) => i.id === action.payload.id)) {

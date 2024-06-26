@@ -1,7 +1,7 @@
 import { Locale, availableLocales, setLocale } from '../../../store/UISlice'
 import { useDispatch } from 'react-redux'
 import { resetOrder } from '../../../store/menuSlice'
-import styles from './language-toggle.module.scss'
+import styles from './LanguageToggle.module.scss'
 
 const LanguageToggle = () => {
   const dispatch = useDispatch()

@@ -15,6 +15,7 @@ import {
 import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getRestaurantData } from './api/rest-api'
+import { applyWebSettings } from './utils/applyWebSettings'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ function App() {
 
   if (data) {
     dispatch(setWebSettings(data.webSettings))
+    applyWebSettings(data.webSettings)
   }
 
   // TODO: Move to a custom hook

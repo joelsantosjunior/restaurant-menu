@@ -19,9 +19,15 @@
 #modal > div {
   width: min(100%, 48.25em);
   height: 100%;
+  overflow-y: scroll;
   background: var(--color-modal-bg);
   animation: showModal 0.2s ease-in-out;
   background-color: #f8f9fa;
+
+  @media (min-width: 700px) {
+    width: 480px;
+    max-height: 720px;
+  }
 }
 
 @keyframes showModal {

@@ -19,6 +19,16 @@
   flex: 1;
   font-size: 16px;
 
+  :not(h3:first-child, .badge) {
+    color: var(--color-text-variation);
+  }
+
+  h3 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   div {
     display: flex;
     margin-top: auto;
@@ -40,4 +50,17 @@
   height: 85px;
   object-fit: cover;
   border-radius: 4px;
+}
+
+.badge {
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 1px 4px 1px 4px;
+  background-color: var(--primary-color);
+  color: white;
+  margin-right: 9px;
 }

@@ -7,6 +7,7 @@
   border: none;
   box-shadow: var(--shadow-card);
   width: 100%;
+  color: white;
 
   cursor: pointer;
   height: min(3em, 100%);
@@ -26,7 +27,7 @@
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--primary-color);
 
   img {
     width: 1em;
@@ -34,12 +35,7 @@
   }
 }
 
-.secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-text-secondary);
-}
-
 .primary {
-  background-color: var(--color-primary);
-  color: var(--color-text-secondary);
+  background-color: var(--primary-color);
+  color: white;
 }

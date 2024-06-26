@@ -13,16 +13,13 @@
     top: 2em;
     padding: 0.2em;
     display: flex;
+    margin: 0em 1em 0 0;
+    border-radius: 50%;
+    background-color: white;
 
     img {
       width: 1em;
       height: 1em;
-    }
-
-    @media screen and (max-width: 768px) {
-      margin: 0.5em 0.5em 0 0;
-      border-radius: 50%;
-      background-color: white;
     }
   }
 }
@@ -31,10 +28,6 @@
   width: 100%;
   overflow: hidden;
   min-height: 6em;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 
   img {
     width: 100%;
@@ -55,7 +48,7 @@
   flex-direction: column;
 
   margin-top: auto;
-  padding: 4px 24px 24px 24px;
+  padding: 16px 24px 24px 24px;
 
   div:first-child {
     display: flex;
