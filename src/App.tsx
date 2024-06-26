@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const { data, isPending, isFetching, isError } = useQuery({
+  const { data, isPending, isFetching, isError, isSuccess } = useQuery({
     queryKey: ['restaurantData'],
     queryFn: getRestaurantData,
   })
@@ -35,11 +35,6 @@ function App() {
   )
 
   const dispatch = useDispatch()
-
-  if (data) {
-    dispatch(setWebSettings(data.webSettings))
-    applyWebSettings(data.webSettings)
-  }
 
   // TODO: Move to a custom hook
   useEffect(() => {
@@ -51,6 +46,11 @@ function App() {
 
     dispatch(setLocale(initialLocale as Locale))
   }, [])
+
+  if (isSuccess) {
+    dispatch(setWebSettings(data.webSettings))
+    applyWebSettings(data.webSettings)
+  }
 
   if (isPending || isFetching) {
     // TODO: create a loading spinner component
