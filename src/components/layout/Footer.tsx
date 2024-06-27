@@ -4,6 +4,7 @@ import { setShowOrderModel } from '../../store/UISlice'
 import styles from './footer.module.scss'
 import UIButton from '../ui/button/Button'
 import useOrder from '../../hooks/useOrder'
+import LocalizeText from '../ui/localize-text/LocalizeText'
 
 const Footer: React.FC = () => {
   const dispatch = useDispatch()
@@ -18,12 +19,15 @@ const Footer: React.FC = () => {
     <>
       <div className={styles.footer}>
         <div>
-          <a href="">View allergy information</a>
+          <a href="">
+            <LocalizeText>page.menu.footer.allergy</LocalizeText>
+          </a>
         </div>
         <div>
           {order.length > 0 && (
             <UIButton type="primary" onClick={handleFinishOrder}>
-              Your basket • {order.length} item
+              <LocalizeText>page.menu.footer.button.basket</LocalizeText> •{' '}
+              {order.length} item
             </UIButton>
           )}
         </div>

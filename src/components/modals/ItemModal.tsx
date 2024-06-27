@@ -8,6 +8,7 @@ import Modifier from '../menu/modifier/Modifier'
 import { ModifierItem } from '../../models/ModifierItem.model'
 import Quantifier from '../ui/quantifier/Quantifier'
 import { Modifier as ModifierModel } from '../../models/Modifier.model'
+import LocalizeText from '../ui/localize-text/LocalizeText'
 
 interface ItemModalProps {
   item: Item
@@ -108,7 +109,8 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
           }}
         ></Quantifier>
         <UIButton disabled={disabled} onClick={handleAddItemToBasket}>
-          Add to Order • R$ {price.toFixed(2)}
+          <LocalizeText>page.menu.modal.button.addToOrder</LocalizeText> • R${' '}
+          {price.toFixed(2)}
         </UIButton>
       </div>
     </div>

@@ -2,46 +2,44 @@
   "page": {
     "menu": {
       "footer": {
+        "allergy": {
+          "en": "View allergy information",
+          "pt": "Informações sobre alergias"
+        },
         "total": {
           "en": "Total",
           "pt": "Total"
         },
         "button": {
-          "en": "My Order",
-          "pt": "Meu Pedido"
+          "basket": {
+            "en": "View basket",
+            "pt": "Ver carrinho"
+          }
+        }
+      },
+      "basket": {
+        "title": {
+          "en": "Basket",
+          "pt": "Carrinho"
+        },
+        "empty": {
+          "en": "Your basket is empty",
+          "pt": "Seu carrinho está vazio"
+        },
+        "button": {
+          "en": "Add to Order",
+          "pt": "Adicionar"
         }
       },
       "modal": {
-        "order": {
-          "title": {
-            "en": "My Order",
-            "pt": "Meu Pedido"
-          },
-          "total": {
-            "en": "Total",
-            "pt": "Total"
-          }
-        },
         "button": {
-          "clean": {
-            "en": "Clean",
-            "pt": "Limpar"
-          },
           "finish": {
-            "en": "Finish Order",
-            "pt": "Finalizar Pedido"
+            "en": "Checkout now",
+            "pt": "Pagamento"
           },
           "addToOrder": {
             "en": "Add to Order",
             "pt": "Adicionar"
-          },
-          "removeFromOrder": {
-            "en": "Remove",
-            "pt": "Remover"
-          },
-          "updateOrder": {
-            "en": "Update Order",
-            "pt": "Atualizar Pedido"
           }
         }
       }

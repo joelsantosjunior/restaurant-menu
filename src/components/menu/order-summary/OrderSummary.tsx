@@ -2,6 +2,7 @@ import useOrder from '../../../hooks/useOrder'
 import useTotal from '../../../hooks/useTotal'
 import { getCorrectPrice } from '../../../utils/getCorrectPrice'
 import UIButton from '../../ui/button/Button'
+import LocalizeText from '../../ui/localize-text/LocalizeText'
 import Quantifier from '../../ui/quantifier/Quantifier'
 import styles from './orderSummary.module.scss'
 
@@ -19,7 +20,9 @@ const OrderSummary = ({ onCheckout }: OrderSummaryProps) => {
         <ul>
           {items.length === 0 && (
             <li>
-              <p>Your basket is empty</p>
+              <p>
+                <LocalizeText>page.menu.basket.empty</LocalizeText>
+              </p>
             </li>
           )}
           {items.map((item) => (
@@ -59,7 +62,9 @@ const OrderSummary = ({ onCheckout }: OrderSummaryProps) => {
             </ul>
           </div>
           <div className={styles.actions}>
-            <UIButton onClick={onCheckout}>Checkout now</UIButton>
+            <UIButton onClick={onCheckout}>
+              <LocalizeText>page.menu.modal.button.finish</LocalizeText>
+            </UIButton>
           </div>
         </>
       )}
