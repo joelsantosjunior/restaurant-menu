@@ -1,23 +1,27 @@
-import { SelectedItem } from '../../../store/menuSlice'
+import { unselectItem, updateItemQtd } from '../../../store/menuSlice'
 import { getCorrectPrice } from '../../../utils/getCorrectPrice'
 import Quantifier from '../../ui/quantifier/Quantifier'
-import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { OrderItem } from '../../../models/OrderItem.model'
 
 interface OrderSummaryItemProps {
-  item: SelectedItem
+  item: OrderItem
 }
 
 const OrderSummaryItem = ({ item }: OrderSummaryItemProps) => {
-  const [qtd, setQtd] = useState(item.qtd)
+  const dispatch = useDispatch()
 
-  const handleQtdChange = (value: number) => {
-    if (value !== qtd) {
-      setQtd(value)
+  const handleUpdateItemQtd = (id: string, qtd: number) => {
+    if (qtd === 0) {
+      dispatch(unselectItem(id))
+      return
     }
+
+    dispatch(updateItemQtd({ id, qtd }))
   }
 
   return (
-    <li>
+    <li key={Math.random() * 1000}>
       <div>
         <p>
           {item.qtd}x {item.name}
@@ -29,7 +33,12 @@ const OrderSummaryItem = ({ item }: OrderSummaryItemProps) => {
               {modifier.price})
             </p>
           ))}
-        <Quantifier onChange={handleQtdChange}></Quantifier>
+        <Quantifier
+          value={item.qtd}
+          onChange={(val) => {
+            handleUpdateItemQtd(item.orderItemId, val)
+          }}
+        ></Quantifier>
       </div>
       <h3>R${getCorrectPrice(item)}</h3>
     </li>
