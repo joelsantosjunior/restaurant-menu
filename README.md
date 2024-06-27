@@ -17,7 +17,7 @@ After that, you can clone the repository and run the following commands:
 npm install
 npm run dev
 ```
-The project will be available at [http://localhost:3000](http://localhost:5173/)
+The project will be available at [http://localhost:5173](http://localhost:5173/)
 
 ## Cors Error
 
