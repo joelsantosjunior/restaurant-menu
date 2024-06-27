@@ -3,7 +3,7 @@ import { Venue } from '../models/Venue.model'
 
 const BASE_URL = 'https://cdn-dev.preoday.com/challenge'
 
-const PROXY_SERVER = `http://localhost:3222/proxy?url=${BASE_URL}`
+// const PROXY_SERVER = `http://localhost:3222/proxy?url=${BASE_URL}`
 
 export const getRestaurantData = async (): Promise<Venue> => {
   const response = await fetch(`${BASE_URL}/venue/9`)
