@@ -8,6 +8,32 @@ https://www.figma.com/design/9eUcy4OeOdqP9Ux5TyCGga/Front-end-test?node-id=7-240
 
 My name is Joel Santos and I am a frontend developer. I have over 6 years of experience working for large and small companies, corporations, and startups.
 
+## How to run 
+
+To run the project, you need to have Node.js installed on your machine.\
+After that, you can clone the repository and run the following commands:
+
+```bash
+npm install
+npm run dev
+```
+The project will be available at http://localhost:3000
+
+## Cors Error
+
+The project uses an API to simulate the backend, so you may encounter a CORS error when trying to access the API.\
+To solve this problem, I recommend using a browser with CORS disabled, such as Google Chrome.\
+To disable it you can install an extension like: https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=pt\
+
+## How to build
+
+To build the project, you can run the following command:
+
+```bash
+npm run build
+```
+
+
 ## Time limitation and initial considerations
 
 There was a problem with the first delivery which was the veggie-bistro menu (https://veggie-restro-client.vercel.app/) due to some communication problems I accidentally missed some important points to be implemented.
