@@ -46,7 +46,6 @@ For this second delivery there was a time limitation, the time window available 
 
 Below is the user journey:
 
-- The user scans the QRCode
 - The user views the dishes
 - The user chooses a dish and adds it to the cart
 - The user can personalize the dish if available
