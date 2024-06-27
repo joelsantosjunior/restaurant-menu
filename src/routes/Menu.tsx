@@ -9,6 +9,7 @@ import Modal from '../modal'
 import { setShowOrderModel } from '../store/UISlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from '../store/store'
+import Basket from '../components/layout/Basket'
 
 const MenuSection = () => {
   const { data } = useQuery({
@@ -35,20 +36,23 @@ const MenuSection = () => {
   ))
 
   return (
-    <div className={styles.menuContainer}>
-      <TextField></TextField>
-      <CategoriesCarousel data={categories}></CategoriesCarousel>
-      {sections}
-      {showOrderModal && (
-        <Modal>
-          <OrderModal
-            onClose={() => {
-              dispatch(setShowOrderModel(false))
-            }}
-          ></OrderModal>
-        </Modal>
-      )}
-    </div>
+    <>
+      <div className={styles.menuContainer}>
+        <TextField></TextField>
+        <CategoriesCarousel data={categories}></CategoriesCarousel>
+        {sections}
+        {showOrderModal && (
+          <Modal>
+            <OrderModal
+              onClose={() => {
+                dispatch(setShowOrderModel(false))
+              }}
+            ></OrderModal>
+          </Modal>
+        )}
+      </div>
+      <Basket></Basket>
+    </>
   )
 }
 

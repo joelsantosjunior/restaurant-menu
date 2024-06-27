@@ -1,19 +1,12 @@
-import UIButton from '../ui/button/Button'
-import useOrder from '../../hooks/useOrder'
-import useTotal from '../../hooks/useTotal'
 import styles from './OrderModal.module.scss'
 import Menu from '../ui/menu/Menu'
-import Quantifier from '../ui/quantifier/Quantifier'
-import { getCorrectPrice } from '../../utils/getCorrectPrice'
+import OrderSummary from '../menu/order-summary/OrderSummary'
 
 interface OrderModalProps {
   onClose: () => void
 }
 
 const OrderModal = ({ onClose }: OrderModalProps) => {
-  const items = useOrder()
-  const total = useTotal()
-
   const handleFinishOrder = () => {
     onClose()
   }
@@ -29,45 +22,7 @@ const OrderModal = ({ onClose }: OrderModalProps) => {
           onClickRightIcon={onClose}
         ></Menu>
       </div>
-      <div className={styles.modalSummary}>
-        <ul>
-          {items.map((item) => (
-            <li key={Math.random() * 1000}>
-              <div>
-                <p>
-                  {item.qtd}x {item.name}
-                </p>
-                {item.selectedModifiers &&
-                  item.selectedModifiers.map((modifier, index) => (
-                    <p key={modifier.id + index}>
-                      {modifier.name} (+R$
-                      {modifier.price})
-                    </p>
-                  ))}
-                <Quantifier></Quantifier>
-              </div>
-              <h3>R${getCorrectPrice(item)}</h3>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={styles.modalTotal}>
-        <ul>
-          <li>
-            <p>Sub total</p>
-            <p>
-              <strong> R${total}</strong>
-            </p>
-          </li>
-          <li>
-            <h1>Total:</h1>
-            <h1>R${total}</h1>
-          </li>
-        </ul>
-      </div>
-      <div className={styles.modalActions}>
-        <UIButton onClick={handleFinishOrder}>Checkout now</UIButton>
-      </div>
+      <OrderSummary onCheckout={handleFinishOrder}></OrderSummary>
     </div>
   )
 }

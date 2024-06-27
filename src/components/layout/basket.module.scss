@@ -1,0 +1,53 @@
+.basket {
+  margin: 0 0 0 16px;
+  width: 320px;
+  height: auto;
+
+  box-shadow: var(--shadow-card);
+
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
+}
+
+.header {
+  background-color: var(--bg-color-variation);
+  padding: 16px;
+}
+
+.summary {
+  background-color: white;
+
+  li {
+    padding: 0.7em 1em 1em 1em;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1em;
+  background-color: var(--bg-color-variation);
+
+  li {
+    padding: 0.7em 0;
+  }
+
+  li:first-child {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  li:nth-child(2) {
+    h1:first-child {
+      font-weight: lighter;
+    }
+  }
+}
+
+.actions {
+  margin-top: auto;
+  padding: 1em;
+  background-color: var(--bg-color-variation);
+}

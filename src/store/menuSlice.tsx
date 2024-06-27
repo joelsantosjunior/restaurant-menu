@@ -24,6 +24,14 @@ const menuSlice = createSlice({
         selectedModifiers: action.payload?.selectedModifiers ?? [],
       })
     },
+    updateItem: (
+      state,
+      action: PayloadAction<{ item: SelectedItem; index: number }>
+    ) => {
+      state.selectedItems = state.selectedItems.map((item, i) => {
+        return action.payload.index === i ? action.payload.item : item
+      })
+    },
     unselectItem: (state, action: PayloadAction<Item>) => {
       state.selectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload.id
@@ -35,6 +43,7 @@ const menuSlice = createSlice({
   },
 })
 
-export const { selectItem, unselectItem, resetOrder } = menuSlice.actions
+export const { selectItem, unselectItem, resetOrder, updateItem } =
+  menuSlice.actions
 
 export default menuSlice.reducer
