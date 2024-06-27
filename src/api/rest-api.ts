@@ -3,8 +3,10 @@ import { Venue } from '../models/Venue.model'
 
 const BASE_URL = 'https://cdn-dev.preoday.com/challenge'
 
+const PROXY_SERVER = `http://localhost:3222/proxy?url=${BASE_URL}`
+
 export const getRestaurantData = async (): Promise<Venue> => {
-  const response = await fetch(`${BASE_URL}/venue/9`)
+  const response = await fetch(`${PROXY_SERVER}/venue/9`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch restaurant data')
@@ -16,7 +18,7 @@ export const getRestaurantData = async (): Promise<Venue> => {
 }
 
 export const getMenuData = async (): Promise<Menu> => {
-  const response = await fetch(`${BASE_URL}/menu`)
+  const response = await fetch(`${PROXY_SERVER}/menu`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch menu data')
