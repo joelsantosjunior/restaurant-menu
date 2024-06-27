@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.headerBanner {
+  height: 150px;
+}

@@ -1,38 +1,24 @@
-import styled from 'styled-components'
 import Menu from '../ui/menu/Menu'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../store/store'
 import LanguageToggle from '../ui/language-toggle/LanguageToggle'
-
-const MyHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-
-  .header-banner {
-    height: 150px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-position: center;
-    object-fit: cover;
-  }
-`
+import styles from './header.module.scss'
 
 const Header = () => {
   const webSettings = useSelector((state: AppState) => state.ui.appSettings)
 
   return (
-    <MyHeader>
+    <div className={styles.header}>
       <LanguageToggle></LanguageToggle>
       <Menu text="Menu" rightIcon="/hamburger.svg"></Menu>
-      <div className="header-banner">
-        <img src={webSettings?.bannerImage} alt="restaurant banner image" />
+      <div className={styles.headerBanner}>
+        <img
+          className={styles.bannerImage}
+          src={webSettings?.bannerImage}
+          alt="restaurant banner image"
+        />
       </div>
-    </MyHeader>
+    </div>
   )
 }
 
