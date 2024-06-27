@@ -109,4 +109,4 @@ A top Menu was added that becomes fixed when scrolling, allowing quick access to
 
 The Order view button is only displayed if there is at least one item in the order, as well as the total order.
 
-Small labels have been added that inform if the food is gluten-free or lactose-free.
+I Keept the search input attached to the dishes card for bigger screens, to increase the sense of unit between those two elements
