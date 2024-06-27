@@ -27,8 +27,6 @@ const MenuSection = () => {
   const categories =
     data?.sections.sort((a, b) => a.position - b.position) || []
 
-  const handleFilterItems = (searchText: string) => {}
-
   const sections = categories.map((category) => (
     <MenuCategory
       key={category.id}
@@ -45,7 +43,7 @@ const MenuSection = () => {
   return (
     <>
       <div className={styles.menuContainer}>
-        <TextField onChange={handleFilterItems}></TextField>
+        <TextField onChange={() => {}}></TextField>
         <CategoriesCarousel data={categories}></CategoriesCarousel>
         {sections}
         {showOrderModal && (
