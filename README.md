@@ -85,7 +85,7 @@ Disclaimer 2: Unit tests were not done due to the time stipulated for project de
 
 ## Non-Functional Requirements
 
-- [x]  Responsiveness (Tablet & Mobile phone)
+- [x]  Responsiveness (Desktop & Tablet & Mobile phone)
 
 ## Development
 
