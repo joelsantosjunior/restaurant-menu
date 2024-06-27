@@ -1,11 +1,11 @@
+@import '../../../mixins.scss';
+
 .menu {
   height: 64px;
   width: 100%;
   background-color: var(--nav-bg-color);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
 
   color: white;
   font-size: 18px;
