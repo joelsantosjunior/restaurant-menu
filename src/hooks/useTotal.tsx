@@ -2,9 +2,9 @@ import { getCorrectPrice } from '../utils/getCorrectPrice'
 import useOrder from './useOrder'
 
 const useTotal = () => {
-  const selectedItems = useOrder()
+  const order = useOrder()
 
-  const total = selectedItems.reduce(
+  const total = order.reduce(
     (acc, item) => acc + getCorrectPrice(item) * item.qtd,
     0
   )

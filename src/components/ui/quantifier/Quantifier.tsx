@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './quantifier.module.scss'
 
 interface QuantifierProps {
@@ -6,18 +5,14 @@ interface QuantifierProps {
   onChange?: (value: number) => void
 }
 
-const Quantifier = ({ value, onChange }: QuantifierProps) => {
-  const [val, setVal] = useState(value ?? 1)
-
-  useEffect(() => {
-    onChange?.(val)
-  }, [val])
-
+const Quantifier = ({ value = 1, onChange }: QuantifierProps) => {
   return (
     <div className={styles.quantifier}>
       <div
         onClick={() => {
-          val > 1 && setVal(val - 1)
+          if (value > 0) {
+            onChange?.(value - 1)
+          }
         }}
       >
         <svg
@@ -30,10 +25,10 @@ const Quantifier = ({ value, onChange }: QuantifierProps) => {
           <path d="M19 12.998H13H11H5V10.998H11H13H19V12.998Z" fill="#FDFADF" />
         </svg>
       </div>
-      <span>{val}</span>
+      <span>{value}</span>
       <div
         onClick={() => {
-          setVal(val + 1)
+          onChange?.(value + 1)
         }}
       >
         <svg

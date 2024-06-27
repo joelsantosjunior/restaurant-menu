@@ -20,7 +20,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
   const [qtd, setQtd] = useState(1)
 
-  const [disabled, setDisabled] = useState(!!item?.modifiers?.length)
+  const [disabled, setDisabled] = useState(true)
 
   const [selectedModifiers, setSelectedModifiers] = useState<
     Map<number, ModifierItem>
@@ -50,14 +50,13 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
   }
 
   useEffect(() => {
-    if (!item.modifiers) {
-      return
-    }
+    let newState = false
 
-    if (selectedModifiers.size === item.modifiers.length) {
-      setDisabled(false)
-    }
-  }, [selectedModifiers, item.modifiers])
+    newState =
+      selectedModifiers.size !== (item.modifiers ?? []).length || qtd === 0
+
+    setDisabled(newState)
+  }, [selectedModifiers, item.modifiers, qtd])
 
   const price = useMemo(() => {
     return (
@@ -68,7 +67,7 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
       ) *
         qtd
     )
-  }, [selectedModifiers, qtd])
+  }, [selectedModifiers, qtd, item])
 
   return (
     <div className={styles.container}>
@@ -104,12 +103,13 @@ const ItemModal = ({ item, onClose }: ItemModalProps) => {
 
       <div className={styles.actions}>
         <Quantifier
+          value={qtd}
           onChange={(value) => {
             setQtd(value)
           }}
         ></Quantifier>
         <UIButton disabled={disabled} onClick={handleAddItemToBasket}>
-          <LocalizeText>page.menu.modal.button.addToOrder</LocalizeText> • R${' '}
+          <LocalizeText>page.menu.modal.button.addToOrder</LocalizeText> • R$
           {price.toFixed(2)}
         </UIButton>
       </div>
