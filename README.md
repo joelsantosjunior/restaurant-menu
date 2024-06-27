@@ -1,6 +1,8 @@
 # Restaurant Menu Frontend Challenge
 
-The project was created to serve as an online menu for restaurants and bars
+The project was created to serve as an online menu for restaurants and bars.
+Figma File:
+https://www.figma.com/design/9eUcy4OeOdqP9Ux5TyCGga/Front-end-test?node-id=7-2406&t=nLbMZ2zhnqtZYXrx-0
 
 ## Who am I?
 
