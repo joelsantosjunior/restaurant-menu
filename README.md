@@ -1,6 +1,6 @@
 # Restaurant Menu Frontend Challenge
 
-The project was created to serve as an in-place menu for restaurants and bars
+The project was created to serve as an online menu for restaurants and bars
 
 ## Who am I?
 
