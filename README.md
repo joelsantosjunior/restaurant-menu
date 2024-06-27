@@ -17,13 +17,13 @@ After that, you can clone the repository and run the following commands:
 npm install
 npm run dev
 ```
-The project will be available at http://localhost:3000
+The project will be available at [http://localhost:3000](http://localhost:5173/)
 
 ## Cors Error
 
 The project uses an API to simulate the backend, so you may encounter a CORS error when trying to access the API.\
 To solve this problem, I recommend using a browser with CORS disabled, such as Google Chrome.\
-To disable it you can install an extension like: https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=pt\
+To disable it you can install an extension like: (CORS Unlock)[https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=pt]
 
 ## How to build
 
