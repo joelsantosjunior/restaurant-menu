@@ -1,11 +1,24 @@
+import { useEffect, useState } from 'react'
 import styles from './TextField.module.scss'
 
 interface TextFieldProps {
-  value?: string
+  initialValue?: string
   onChange?: (newValue: string) => void
 }
 
-const TextField = ({ value = '', onChange }: TextFieldProps) => {
+const TextField = ({ initialValue = '', onChange }: TextFieldProps) => {
+  const [value, setValue] = useState(initialValue)
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue)
+  }
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(value)
+    }
+  }, [value])
+
   return (
     <div className={styles.textField}>
       <span>
@@ -14,7 +27,7 @@ const TextField = ({ value = '', onChange }: TextFieldProps) => {
       <input
         value={value}
         onChange={(e) => {
-          onChange && onChange(e.target.value)
+          handleChange(e.target.value)
         }}
         type="text"
         placeholder="Search menu items"

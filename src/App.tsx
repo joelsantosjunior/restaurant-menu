@@ -12,6 +12,7 @@ import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getRestaurantData } from './api/rest-api'
 import { applyWebSettings } from './utils/applyWebSettings'
+import LoadingSpinner from './components/ui/loading-spinner/LoadingSpinner'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const { data, isPending, isFetching, isError, isSuccess } = useQuery({
+  const { data, status } = useQuery({
     queryKey: ['restaurantData'],
     queryFn: getRestaurantData,
   })
@@ -38,19 +39,13 @@ function App() {
     dispatch(setLocale(initialLocale as Locale))
   }, [])
 
-  if (isSuccess) {
+  if (status === 'success') {
     dispatch(setWebSettings(data.webSettings))
     applyWebSettings(data.webSettings)
   }
 
-  if (isPending || isFetching) {
-    // TODO: create a loading spinner component
-    return <div>Loading...</div>
-  }
-
-  if (isError) {
-    // TODO: Implement a proper error handling
-    return <div>Error fetching data</div>
+  if (status === 'pending') {
+    return <LoadingSpinner></LoadingSpinner>
   }
 
   return (

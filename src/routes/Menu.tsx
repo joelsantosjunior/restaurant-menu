@@ -10,9 +10,10 @@ import { setShowOrderModel } from '../store/UISlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from '../store/store'
 import Basket from '../components/layout/Basket'
+import LoadingSpinner from '../components/ui/loading-spinner/LoadingSpinner'
 
 const MenuSection = () => {
-  const { data } = useQuery({
+  const { data, status } = useQuery({
     queryKey: ['menu'],
     queryFn: getMenuData,
   })
@@ -26,6 +27,8 @@ const MenuSection = () => {
   const categories =
     data?.sections.sort((a, b) => a.position - b.position) || []
 
+  const handleFilterItems = (searchText: string) => {}
+
   const sections = categories.map((category) => (
     <MenuCategory
       key={category.id}
@@ -35,10 +38,14 @@ const MenuSection = () => {
     />
   ))
 
+  if (status === 'pending') {
+    return <LoadingSpinner></LoadingSpinner>
+  }
+
   return (
     <>
       <div className={styles.menuContainer}>
-        <TextField></TextField>
+        <TextField onChange={handleFilterItems}></TextField>
         <CategoriesCarousel data={categories}></CategoriesCarousel>
         {sections}
         {showOrderModal && (
