@@ -12,11 +12,13 @@ const Header = () => {
       <LanguageToggle></LanguageToggle>
       <Menu text="Menu" rightIcon="/hamburger.svg"></Menu>
       <div className={styles.headerBanner}>
-        <img
-          className={styles.bannerImage}
-          src={webSettings?.bannerImage}
-          alt="restaurant banner image"
-        />
+        {webSettings?.bannerImage && (
+          <img
+            className={styles.bannerImage}
+            src={webSettings?.bannerImage}
+            alt="restaurant banner image"
+          />
+        )}
       </div>
     </div>
   )
