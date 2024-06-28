@@ -1,6 +1,12 @@
 {
   "page": {
     "menu": {
+      "search": {
+        "placeholder": {
+          "en": "Search menu items",
+          "pt": "Pesquisar itens do menu"
+        }
+      },
       "footer": {
         "allergy": {
           "en": "View allergy information",

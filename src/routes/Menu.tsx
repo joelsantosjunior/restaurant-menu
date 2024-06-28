@@ -13,6 +13,7 @@ import Basket from '../components/layout/Basket'
 import LoadingSpinner from '../components/ui/loading-spinner/LoadingSpinner'
 import { useState } from 'react'
 import { MenuSection as MenuSectionModel } from '../models/MenuSection.model'
+import useLocalizedText from '../hooks/useLocalizedText'
 
 const MenuSection = () => {
   const { data, status } = useQuery({
@@ -25,6 +26,8 @@ const MenuSection = () => {
   )
 
   const [filteredItems, setFilteredItems] = useState<MenuSectionModel[]>([])
+
+  const placeHolderText = useLocalizedText('page.menu.search.placeholder')
 
   const dispatch = useDispatch()
 
@@ -60,7 +63,10 @@ const MenuSection = () => {
   return (
     <>
       <div className={styles.menuContainer}>
-        <TextField onChange={handleSearch}></TextField>
+        <TextField
+          onChange={handleSearch}
+          placeholder={placeHolderText}
+        ></TextField>
         <CategoriesCarousel data={categories}></CategoriesCarousel>
         {filteredItems.map((category) => (
           <MenuCategory

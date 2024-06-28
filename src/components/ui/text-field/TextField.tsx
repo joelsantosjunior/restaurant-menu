@@ -3,10 +3,15 @@ import styles from './TextField.module.scss'
 
 interface TextFieldProps {
   initialValue?: string
+  placeholder?: string
   onChange?: (newValue: string) => void
 }
 
-const TextField = ({ initialValue = '', onChange }: TextFieldProps) => {
+const TextField = ({
+  initialValue = '',
+  onChange,
+  placeholder,
+}: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
 
   const handleChange = (newValue: string) => {
@@ -30,7 +35,7 @@ const TextField = ({ initialValue = '', onChange }: TextFieldProps) => {
           handleChange(e.target.value)
         }}
         type="text"
-        placeholder="Search menu items"
+        placeholder={placeholder || 'Search'}
       />
     </div>
   )
